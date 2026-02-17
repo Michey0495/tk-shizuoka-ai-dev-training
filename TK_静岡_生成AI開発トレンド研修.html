@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生成AI開発トレンド研修 | TK様 静岡会場</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#D0021B;
+  --red-light:#FFF0F0;
+  --red-dark:#A00016;
+  --dark:#1A1A1A;
+  --gray-900:#2D2D2D;
+  --gray-700:#555;
+  --gray-500:#888;
+  --gray-300:#CCC;
+  --gray-100:#F5F5F5;
+  --white:#FFFFFF;
+  --font-sans:'Hiragino Kaku Gothic ProN','Noto Sans JP','Yu Gothic',sans-serif;
+  --font-mono:'SF Mono','Fira Code','Source Code Pro',monospace;
+  --max-w:960px;
+  --shadow:0 2px 12px rgba(0,0,0,.08);
+  --radius:8px;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  color:var(--dark);
+  background:var(--white);
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--red);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+a:hover{border-bottom-color:var(--red)}
+
+/* ===== HEADER ===== */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--gray-100);
+  padding:12px 24px;
+}
+.header-inner{
+  max-width:var(--max-w);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.header-logo img{height:28px;display:block}
+.header-nav{display:flex;gap:20px;font-size:.85rem;color:var(--gray-700)}
+.header-nav a{color:var(--gray-700);font-weight:500}
+.header-nav a:hover{color:var(--red)}
+
+/* ===== HERO ===== */
+.hero{
+  max-width:var(--max-w);margin:0 auto;
+  padding:80px 24px 60px;
+  text-align:center;
+}
+.hero-badge{
+  display:inline-block;
+  background:var(--red);color:var(--white);
+  font-size:.75rem;font-weight:700;
+  padding:4px 14px;border-radius:20px;
+  letter-spacing:.05em;margin-bottom:20px;
+}
+.hero h1{
+  font-size:2.2rem;font-weight:800;
+  line-height:1.3;margin-bottom:16px;
+  letter-spacing:-.02em;
+}
+.hero h1 span{color:var(--red)}
+.hero-meta{
+  font-size:.9rem;color:var(--gray-700);
+  display:flex;flex-wrap:wrap;justify-content:center;gap:24px;
+  margin-top:16px;
+}
+.hero-meta-item{display:flex;align-items:center;gap:6px}
+.hero-meta-item svg{width:16px;height:16px;color:var(--red)}
+
+/* ===== AGENDA ===== */
+.agenda{
+  max-width:var(--max-w);margin:0 auto;
+  padding:0 24px 60px;
+}
+.agenda-title{
+  font-size:1.1rem;font-weight:700;
+  margin-bottom:20px;
+  padding-left:12px;
+  border-left:4px solid var(--red);
+}
+.agenda-grid{display:grid;gap:12px}
+.agenda-card{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:16px;
+  padding:16px 20px;
+  background:var(--gray-100);
+  border-radius:var(--radius);
+  transition:transform .15s,box-shadow .15s;
+}
+.agenda-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.agenda-card.is-break{opacity:.6}
+.agenda-time{
+  font-size:.85rem;font-weight:700;
+  color:var(--red);
+  padding-top:2px;
+}
+.agenda-body h3{font-size:.95rem;font-weight:700;margin-bottom:4px}
+.agenda-body p{font-size:.8rem;color:var(--gray-700);line-height:1.6}
+.agenda-dur{
+  display:inline-block;
+  font-size:.7rem;font-weight:600;
+  color:var(--gray-500);
+  background:var(--white);
+  padding:2px 8px;border-radius:4px;
+  margin-left:8px;
+}
+
+/* ===== SECTION ===== */
+.section{
+  max-width:var(--max-w);margin:0 auto;
+  padding:60px 24px;
+}
+.section + .section{border-top:1px solid var(--gray-100)}
+.section-num{
+  font-size:.75rem;font-weight:700;
+  color:var(--red);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.section-title{
+  font-size:1.6rem;font-weight:800;
+  line-height:1.3;margin-bottom:12px;
+  letter-spacing:-.01em;
+}
+.section-lead{
+  font-size:.95rem;color:var(--gray-700);
+  margin-bottom:32px;
+}
+
+/* ===== SOURCES ===== */
+.sources{
+  margin-top:40px;
+  padding:20px 24px;
+  background:var(--gray-100);
+  border-radius:var(--radius);
+}
+.sources-title{
+  font-size:.8rem;font-weight:700;
+  color:var(--gray-500);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.sources-list{list-style:none;padding:0;margin:0;columns:2;column-gap:32px}
+.sources-list li{
+  font-size:.8rem;
+  color:var(--gray-700);
+  padding:3px 0;
+  break-inside:avoid;
+}
+.sources-list a{font-weight:500}
+@media(max-width:640px){.sources-list{columns:1}}
+
+/* ===== CARD GRID ===== */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:32px}
+.card{
+  background:var(--white);
+  border:1px solid var(--gray-100);
+  border-radius:var(--radius);
+  padding:24px;
+  transition:box-shadow .2s,transform .15s;
+}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.card-label{
+  font-size:.7rem;font-weight:700;
+  color:var(--red);
+  letter-spacing:.05em;
+  margin-bottom:8px;
+}
+.card h4{font-size:1rem;font-weight:700;margin-bottom:8px}
+.card p{font-size:.85rem;color:var(--gray-700);line-height:1.7}
+
+/* ===== COMPARE TABLE ===== */
+.tbl-wrap{overflow-x:auto;margin:24px 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{
+  background:var(--dark);color:var(--white);
+  padding:10px 14px;text-align:left;font-weight:600;
+  font-size:.8rem;
+}
+th:first-child{border-radius:var(--radius) 0 0 0}
+th:last-child{border-radius:0 var(--radius) 0 0}
+td{padding:10px 14px;border-bottom:1px solid var(--gray-100)}
+tr:nth-child(even) td{background:var(--gray-100)}
+td.highlight{color:var(--red);font-weight:600}
+
+/* ===== CODE BLOCK ===== */
+.code-block{
+  background:var(--gray-900);
+  color:#E0E0E0;
+  border-radius:var(--radius);
+  padding:20px 24px;
+  font-family:var(--font-mono);
+  font-size:.82rem;
+  line-height:1.7;
+  overflow-x:auto;
+  margin:16px 0;
+}
+.code-block .comment{color:#6A9955}
+.code-block .key{color:#9CDCFE}
+.code-block .str{color:#CE9178}
+.code-block .kw{color:#569CD6}
+
+/* ===== DIAGRAM ===== */
+.diagram{
+  background:var(--gray-100);
+  border-radius:var(--radius);
+  padding:32px;
+  text-align:center;
+  margin:24px 0;
+  font-family:var(--font-mono);
+  font-size:.82rem;
+  line-height:1.8;
+  white-space:pre;
+  overflow-x:auto;
+}
+
+/* ===== CALLOUT ===== */
+.callout{
+  background:var(--red-light);
+  border-left:4px solid var(--red);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:20px 24px;
+  margin:24px 0;
+}
+.callout-title{font-size:.85rem;font-weight:700;color:var(--red);margin-bottom:6px}
+.callout p{font-size:.85rem;color:var(--gray-700);line-height:1.7}
+
+/* ===== TOPIC ===== */
+.topic{margin-bottom:40px}
+.topic-title{
+  font-size:1.15rem;font-weight:700;
+  margin-bottom:12px;
+  padding-bottom:8px;
+  border-bottom:2px solid var(--gray-100);
+}
+.topic-title span{color:var(--red)}
+
+/* ===== LIST ===== */
+.check-list{list-style:none;padding:0;margin:12px 0}
+.check-list li{
+  position:relative;
+  padding:6px 0 6px 28px;
+  font-size:.88rem;
+  color:var(--gray-700);
+}
+.check-list li::before{
+  content:'';position:absolute;left:0;top:10px;
+  width:16px;height:16px;
+  border:2px solid var(--red);border-radius:50%;
+}
+.check-list li::after{
+  content:'';position:absolute;left:4px;top:14px;
+  width:8px;height:4px;
+  border-left:2px solid var(--red);
+  border-bottom:2px solid var(--red);
+  transform:rotate(-45deg);
+}
+
+/* ===== FLOW ===== */
+.flow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:20px 0}
+.flow-step{
+  background:var(--white);
+  border:2px solid var(--gray-100);
+  border-radius:var(--radius);
+  padding:12px 18px;
+  font-size:.82rem;font-weight:600;
+  text-align:center;
+  min-width:120px;
+}
+.flow-step.is-active{border-color:var(--red);color:var(--red)}
+.flow-arrow{color:var(--gray-300);font-size:1.2rem}
+
+/* ===== DISCUSSION ===== */
+.disc{
+  background:var(--gray-100);
+  border-radius:var(--radius);
+  padding:28px;
+  margin:20px 0;
+}
+.disc-q{font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--dark)}
+.disc-point{margin-bottom:16px}
+.disc-point h5{font-size:.88rem;font-weight:700;color:var(--red);margin-bottom:6px}
+.disc-point p{font-size:.85rem;color:var(--gray-700);line-height:1.7}
+
+/* ===== STAT ===== */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:24px 0}
+.stat{
+  text-align:center;
+  padding:24px 16px;
+  background:var(--gray-100);
+  border-radius:var(--radius);
+  cursor:pointer;
+  transition:transform .15s,box-shadow .15s;
+  position:relative;
+}
+.stat:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.stat-num{font-size:2rem;font-weight:800;color:var(--red);line-height:1}
+.stat-label{font-size:.8rem;color:var(--gray-700);margin-top:8px}
+
+/* ===== REVEAL (クリックで数字表示) ===== */
+.reveal-num{
+  display:inline-block;
+  position:relative;
+  cursor:pointer;
+}
+.reveal-num .num-hidden{
+  font-size:2rem;font-weight:800;color:var(--red);line-height:1;
+  filter:blur(12px);
+  transition:filter .4s ease, transform .3s ease;
+  user-select:none;
+}
+.reveal-num .num-hint{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;font-weight:700;
+  color:var(--white);
+  background:var(--red);
+  border-radius:6px;
+  opacity:1;
+  transition:opacity .3s ease;
+  pointer-events:none;
+  letter-spacing:.05em;
+}
+.reveal-num.is-revealed .num-hidden{
+  filter:blur(0);
+  transform:scale(1.05);
+}
+.reveal-num.is-revealed .num-hint{
+  opacity:0;
+}
+
+/* ===== SOURCE BADGE (裏打ちURL) ===== */
+.source-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:.7rem;font-weight:600;
+  color:var(--gray-500);
+  background:var(--white);
+  border:1px solid var(--gray-300);
+  padding:2px 8px;border-radius:4px;
+  margin-left:6px;
+  transition:color .2s,border-color .2s;
+}
+.source-badge:hover{color:var(--red);border-color:var(--red)}
+.source-badge svg{width:12px;height:12px}
+
+/* ===== FOOTER ===== */
+.site-footer{
+  max-width:var(--max-w);margin:0 auto;
+  padding:40px 24px;
+  border-top:1px solid var(--gray-100);
+  text-align:center;
+  font-size:.8rem;color:var(--gray-500);
+}
+.footer-logo{height:24px;margin-bottom:12px;opacity:.6}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:640px){
+  .hero h1{font-size:1.5rem}
+  .section-title{font-size:1.3rem}
+  .agenda-card{grid-template-columns:1fr}
+  .header-nav{display:none}
+  .flow{flex-direction:column}
+  .flow-arrow{transform:rotate(90deg)}
+}
+
+/* ===== DEMO BUTTON ===== */
+.demo-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--red);color:var(--white);
+  font-size:.85rem;font-weight:700;
+  padding:10px 22px;border:none;border-radius:var(--radius);
+  cursor:pointer;transition:background .2s,transform .15s;
+  letter-spacing:.03em;
+  margin:16px 0;
+}
+.demo-btn:hover{background:var(--red-dark);transform:translateY(-1px)}
+.demo-btn:active{transform:translateY(0)}
+.demo-btn svg{width:18px;height:18px;flex-shrink:0}
+
+/* ===== MODAL ===== */
+.modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center;
+  padding:24px;
+  opacity:0;transition:opacity .25s;
+}
+.modal-overlay.is-open{display:flex;opacity:1}
+.modal{
+  background:var(--white);
+  border-radius:12px;
+  max-width:720px;width:100%;
+  max-height:85vh;
+  overflow-y:auto;
+  box-shadow:0 8px 40px rgba(0,0,0,.2);
+  animation:modalIn .3s ease;
+}
+@keyframes modalIn{from{transform:translateY(20px) scale(.97);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+.modal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 28px 16px;
+  border-bottom:1px solid var(--gray-100);
+}
+.modal-header h3{font-size:1.1rem;font-weight:800}
+.modal-close{
+  width:32px;height:32px;
+  background:var(--gray-100);border:none;border-radius:50%;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.modal-close:hover{background:var(--gray-300)}
+.modal-close svg{width:16px;height:16px;color:var(--gray-700)}
+.modal-body{padding:24px 28px 28px}
+
+/* tabs inside modal */
+.modal-tabs{
+  display:flex;gap:0;
+  border-bottom:2px solid var(--gray-100);
+  margin-bottom:20px;
+}
+.modal-tab{
+  padding:10px 20px;
+  font-size:.85rem;font-weight:600;
+  color:var(--gray-500);
+  background:none;border:none;
+  cursor:pointer;
+  border-bottom:2px solid transparent;
+  margin-bottom:-2px;
+  transition:color .2s,border-color .2s;
+}
+.modal-tab.is-active{color:var(--red);border-bottom-color:var(--red)}
+.modal-tab:hover:not(.is-active){color:var(--dark)}
+
+.modal-panel{display:none}
+.modal-panel.is-active{display:block}
+
+.modal-panel h4{font-size:.95rem;font-weight:700;margin-bottom:10px;color:var(--dark)}
+.modal-panel p{font-size:.88rem;color:var(--gray-700);line-height:1.75;margin-bottom:14px}
+.modal-panel .demo-step{
+  display:flex;gap:14px;
+  padding:12px 0;
+  border-bottom:1px solid var(--gray-100);
+}
+.modal-panel .demo-step:last-child{border-bottom:none}
+.demo-step-num{
+  width:28px;height:28px;flex-shrink:0;
+  background:var(--red);color:var(--white);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;font-weight:700;
+  margin-top:2px;
+}
+.demo-step-body{flex:1}
+.demo-step-body strong{font-size:.88rem;color:var(--dark)}
+.demo-step-body p{margin-top:4px;margin-bottom:0;font-size:.82rem}
+
+.adv-tag{
+  display:inline-block;
+  background:var(--gray-100);color:var(--red);
+  font-size:.7rem;font-weight:700;
+  padding:3px 10px;border-radius:4px;
+  letter-spacing:.05em;
+  margin-bottom:12px;
+}
+
+/* ===== TOOL ICON (カードアイコンバッジ) ===== */
+.card{position:relative}
+.tool-icon{
+  position:absolute;top:12px;right:12px;
+  min-width:28px;height:22px;
+  border-radius:4px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:.6rem;font-weight:800;
+  color:var(--white);
+  letter-spacing:.02em;
+  padding:0 6px;
+  opacity:.85;
+}
+
+/* ===== TOGGLE ALL (全表示/非表示) ===== */
+.toggle-all-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--dark);color:var(--white);
+  font-size:.72rem;font-weight:600;
+  padding:6px 14px;border:none;border-radius:var(--radius);
+  cursor:pointer;transition:background .2s;
+  letter-spacing:.03em;
+  white-space:nowrap;
+}
+.toggle-all-btn:hover{background:var(--red-dark)}
+.toggle-all-btn.is-active{background:var(--red)}
+
+/* ===== DISC ANSWER (ディスカッション回答開示) ===== */
+.disc-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height .5s ease;
+}
+.disc-answer.is-open{max-height:2000px}
+.disc-toggle{
+  display:inline-flex;align-items:center;gap:6px;
+  background:none;border:1px solid var(--gray-300);
+  color:var(--gray-500);
+  font-size:.78rem;font-weight:600;
+  padding:6px 14px;border-radius:var(--radius);
+  cursor:pointer;transition:color .2s,border-color .2s;
+  margin-top:10px;
+}
+.disc-toggle:hover,.disc-toggle.is-open{color:var(--red);border-color:var(--red)}
+
+/* ===== INSTRUCTOR REVEAL (段階開示) ===== */
+.instructor-reveal{
+  max-height:0;overflow:hidden;
+  transition:max-height .5s ease;
+}
+.instructor-reveal.is-open{max-height:5000px}
+.reveal-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--white);border:1px dashed var(--gray-300);
+  color:var(--gray-500);
+  font-size:.78rem;font-weight:600;
+  padding:8px 16px;border-radius:var(--radius);
+  cursor:pointer;transition:all .2s;
+  margin:12px 0;
+}
+.reveal-btn:hover{color:var(--red);border-color:var(--red)}
+.reveal-btn.is-open{border-style:solid;color:var(--red);border-color:var(--red)}
+.eye-ico{vertical-align:-.125em;margin-left:2px}
+
+/* ===== TRY SECTION (自分で試す) ===== */
+.try-section{margin-top:20px;border-top:1px solid var(--gray-100);padding-top:16px}
+.try-section-title{font-size:.72rem;font-weight:700;color:var(--gray-500);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.try-prompt{background:var(--gray-100);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px;position:relative}
+.try-prompt-label{font-size:.7rem;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:.03em}
+.try-prompt-code{font-size:.78rem;line-height:1.7;color:var(--dark);white-space:pre-wrap;font-family:var(--font-sans)}
+.try-copy-btn{position:absolute;top:10px;right:10px;background:var(--white);border:1px solid var(--gray-300);color:var(--gray-500);font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:4px;cursor:pointer;transition:all .2s}
+.try-copy-btn:hover{color:var(--red);border-color:var(--red)}
+.try-download-btn{display:inline-flex;align-items:center;gap:6px;background:var(--white);border:1px solid var(--gray-300);color:var(--gray-700);font-size:.78rem;font-weight:600;padding:8px 14px;border-radius:var(--radius);cursor:pointer;transition:all .2s;margin-top:6px;border-style:none;text-decoration:none}
+.try-download-btn:hover{background:var(--accent-light);color:var(--red);border-color:var(--red)}
+.try-download-btn svg{width:14px;height:14px}
+
+/* ===== PRINT ===== */
+@media print{
+  .site-header{position:static}
+  .card:hover,.agenda-card:hover{transform:none;box-shadow:none}
+  .demo-btn,.try-section{display:none}
+  .modal-overlay{display:none !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+<div class="header-inner">
+  <div class="header-logo">
+    <img src="data:image/webp;base64,UklGRgwhAABXRUJQVlA4TAAhAAAvpIIrEIAkSZLQJv//bUswPTOA0YlybNuq7WZk44h+012mFAQZ2C12C5+Y9UVX/7171j4X3peZ2YHcoID9/yIl+v1nZjtg6QYJEZEwEDtQbLFbQc7WC/XO7u6Os7u7u1AUEAkFEwQpyWUX2Jrdnf9vAoB/ZNc7OuxwJwT4eXaB8UN7Pct5rofBLw6MUfWMXJDrkyxfFPUi29Og98YPYk/7uL3oEfnByekCi1ZQ8MXxu8ScbPrp+rkn5C93y37RCb44EIOHdY2gjq6ffT5OWIlwfCz497Xxub/5lDI+IYgv+jm+FfubYye2xkq6CIIPSFf7dqpWr6jgi+OENY9Rn4UKPiCfa5yvU7WCX18Z76kdJ6tawb8PxwXG+80cTyqj4Jtj9HI4pBsEn5DnPR1eKbvgiwPxva9+VayCD8gFxs/d9a9CBV8cGEt/U7bg9yfjgqNaZqoVPP62+F1iP9RUKPiE/O3h6WZzg+Cb46DR10qN4AOC+D7MelPMgi8ORPPX9wgefyoucOZOjimC598UG3E73HxXLE/Ixrma5PhZCW+OQWrqKwWCZ5+J1cWLBWIWrHxPnLCWP1SR0CfkI3ff7Bed4Jtj52FZLbzg+Qdi41xr4/y+2AXfHKOfdlE3Cj4h3w7WP4hd8MXxgUhvK+/ELviA3Jb7cYJerqjgiwNrGq9/E6x9Gi4wHg+3lAnWvyEi06apcsFH5IR1e6q19sWBiLfpqJgFf54ghmDTeaGCP0821mmcOUuzC94bGOQo0eCBBx544I4TShQwb51VbhovvwSTl4eSSOKYxFxW8z9HucIznvOc5zzjGkc5xGr+YTxxhKF633wgNy+XGsF7AoMMZzqymEukU0AFDVjB41jRU853MjjDP8TghBRmGVONrPCJ6r2wEU8CzXsEw1cFwZ045nMDLRhFoJLL/EV3nCB7aDY9y4+9nLDAe2lqJo/FfEfgaM06nlMBNkSgjPusJhh2CbGZT9q3sRHgtfSZVPpJoVDB24GEMJJ5TyN2sCt2GkklmWDE85QgRY7z7MTAewlr+lNKBPOXA0s02/iMDeyNlQ9sIAQyzfG5Jz29IgJeS4hv3WSl6ATvBlKiOcMvbGB/rPzgAK2QTFJ1+gE/+NkI8FpCHALVDbEI3gxYWrOb3+BUythAqzFKMH+1jPOKHHgvIfYtTXeFCt4MnPiPT1BwLjZymI3DDLHpT3zXzQUGeC+tIk/HmUsEm14HKoaSC04nm57I+ymqV/lusZcVwItpUJpnSbXgzcCNnVSC8/nFepzbmbOcjvW3FHgvIa67mY5Jk+C9QEYCGVjBDeF5QS8kraTB+Xk3ApywwHtpI56Fq3OCja8BR5ZQBS4JpYS5qBqZSzz+y3ca4MW0Y62x8l7x9wJCAMcxgHuiYz8BXcRqeWOJ97YEeDGdKizj5Ldg6wuAoxNp4KpQ0omEaaFrHbb4yRN4M2HNS1SV4L2AoTeZ0F1AkBRiIA1Mhb6b5hMV8GLaiDlQnRBe8F4gZSK1UHBZ7LymU043OH/gcoiNAV5MiKWVeiq84L1ATBIV4LYYuUBzIPlB1TmuNnoBb6YPRNJXfRAqeC8QkUQVdBkESpmJM5ASmzXbzZH+lwFvph/E9jP1CsGBuyElkTpwWXge0RsIO2HdmWatsB71bSgEeDM9dtBXajrBmwGhD9/AZTGzF3+YmHeneDPFS/+QWM1khqD6hAsjmUxiPVNoDxtCRAcS60kmHnEGAgOLM134g7Uc4h6P/vKQc2znbwbijRgG0gaWNiTWM5k4uDMQGFg4VLSkNXEkkkgiEwmDAAAhTCAxyDjEPWAYRGK4EcQQoO6IXfBmwBBDBbgrlA+MhQPisEylFqwnm6BPePEGTJJGcAh3XoP12NiNKACLH135h7MUIYCn0fOAlSTQEnkPpGyEB+u5hfIIBDeiGcFCTpGOFvyMkb/gAIA2fIaC9TQxCbYF7bCBWfL72Ih9e7knVPBmQAjmBrgrVh4RBQvsgJQ98Akq6R6iB6UBKhkPU4aCOLbzikqwGhO5nCERD8gaSIlnHQ/4hg08+gEZ27EFoFzCuQNiTkAzmJncxiBVCVIkguDdwI1z2FaBUs5SPIGOPWDoR0kCA8uQZ1iBPUAqIUAtcqKYz1f02MEkFCMVnKQrLhsgJpz55NCADTz5ASCcnwGQUuIbQOhLGRiFcg/vLm6p1F9SIzh2L2SswAZuio10hsIBawA04yk0APIIzwhqroP12NmOugQRHdlJGQLYkCbuMAT1NAjBLKcICp7/BLAHawBkD1wOJSegGfQMAnpCfKLS94tO8HbA0Y9icFMsnKQlLLAIYhYiJPhK5wixFAQwMRCmABGhHOIXNrApNTygF3LIJCSM4iMWsPILbShOUI9zju7owCyPkfawEVOU3BS74P0gggxwUSjfmYsI6NoEoDv6BGYWJuCYSVOAbHyB0xAC2UgN2BkzV4iDm4Mn+zCAtV+QsQFLAGQ+XAolj6EZ6ugNtISoNuqD2AXvBzJ2Y2sEpY4UDrOKREb9JZF1nOIV+gLS6YEEWAZHXidAziML4MJJrAEOIDqFiGG8wAY2p4gFOE1BxknMYAYgjuIEL/FKkUAtmOU06hZOFdpEVSw4eyk4hmMAm2KhiLssoTUOSOBgIMBfCCwixDgQy0qe8gv+CNXswAMCbAOwGWuCYqICRJEP1lPDaOAkDH7sxwgF22MnnW6IR+DPSWxgCobDCAG0TILN4MYNaIZfdAc6+l2ilku14B0hhBfQHph5yDw6IQEqUdCF/3iJ/ROUHySiAjq3oS+/ElgYB1NHMrUB3hJ6hjieYAVHUsAMFAO4zhYMYAygHXUBkAs4ZhiMFsyyF0kHzV8/pAyCdwQJa7GADRHQcoX+uMAC1bC4M5o76EAQxMJVYuCAKAQJZAZ+PIcGsHMI5zIIZxDq4NmLwzFkjKUYARxKA9vwgLSjAD20ATKOYw1goE0EEY+hGbSEAHmIHqk/F5y/E9GUgA0xco1+ECALx1geY6aCDaiAMDGsImwGcpZhCoBk07IMD7LAemoZCnsIGcupAudi5TIt2kUPAHSnKADyP+IE/TGBUaxsRZyzMaqHeiv0nqBkO5iHUsR03CBAGgYv/mA4CiALRxyfMbMeMgIgnroEZQyDqWIwhgDZhABHkbOABnAyPI/xXQkFJ6ABCgiB1OHIRWiGPNoAcYNSzdLqBTfcCIYe/MrRxGECgA3xYTs6EOQHnWfgycMElKOIixCzEiHAFmRH8OYYFnA42XSGWQigE7oAZpYjLoMwmjowio0FQNzgqFaLVvCmoGQP1hjVLEUDLAhDNDewgiCImQ2oRkBYmwB5jWsRQTyF1mFgBHAQjnUYwekIvKLZRrA8Q6gDeUFAGQpuQTN8wzVlI2776VfFInhX6EEJGEbgJ0MQAwuiYjqFCOBfvtB+BEBfyhPUE1cDIZ5SsJ40gg+gZBF6cD4CNwmE7APQj9oAViZAqhiJGYzCMwsIQ6STeimC4F1Bxk4wDCWf4cCGBLEDI/gZnt0zcONZAmQhohLELKexDhv7kR/gT2rBDbFwFM+FcOECQh3IIyRFuPIKzPIav5BVZOmvfoggeFtoQVEIyncSEC+AiI6kYgG/84mgEcjZiDHBTbxKUPMUWkcl4+C+wNCVUnBHDCxGtA+E4VQHaKQtpATCZHQZGvgDNqOrtflSI7jnPkhZgCmDwGf6AwvixkKqwaNYmQ43AaATRQmK6QKpoB3FYD1pBANfiSQF3BIDQxGtA8BxC6EOgQPIS/DiBTTDS5RAVFer7VIveGPw4j40QxWTES2AP2cxgIcRuIzXCHy4nUDHX0gqmAMfYCcOX1ByDMsaUN4QDVkHoB+GOpCPRJcwGiMYxUoCELWPVHfEJnhnGEEVGMXIFBhgPFIm8RUKnuQX8ZAJEP6EBkBu4lyAM5fAenjigc+wzEAPpqHoKOYTWWSTTTYFVGNNgVDOotoHVx4j1CGwFK4AFR+gESiXcEhAtG4qXXDXdRCxE4zCcxEZMB4vVlALnsbMVsQTADpRlSCXVgW0JT/AJ3y/EEkWGKaBO6xmDJ0JxgdffPCjHYP4m9MUQjMgJsYgWgeWKdTXgeTgVEAijWCUGoZDAv6WahOlQNF7gwf5EShvaQNMR0RbHmAGC3mD4wjkPE5gZvo5WCagrUPgINwnNOzFHMHCV1YSiRMc8B2CCl+m8gwdNAGSTnPIJKyYMGHChPUMgCePAwgkwJzChwfQDCeRA/XipC8WneC220BoD42gZRwwHSXT+AmWUk2vEbCswhgAOYbsFBqOY62jivHAZwZQCgah5LMCb+A8csbyDHMCM+uRTYHnCw/Yw1L+5E/+ZA5L2UU/mGMAY7HUgTxAfQbCZAxgFBPhQL37rrJPGgVvDjKWZLiHahgEV/ZRB9YisGAEQDcKE2QRfAp/MsF6Mgj7BMNl7AFs3CIaMVAJgy+L0UPrQAqIGYFANecYRis8IMBHWCTASRzIgtZRTl+YE4jIgEagHIYpc4ExtFIvBRfeBjeegUlK6QXMRsQg0qFgNRdwGYEPdxACNDAK9gxjqa3Dyk4cPkAYTxNYTxFzUALVEDrxEnsdyAEU/eBJZS4aIAlhIg11IIdQHoMwEzsY5SvRQDVEj5csJdweCNHkJbByFpdZKJlFGVhPLpEjEDMXSwALW1GfYRe2OhoZBvsBV05ir6OIMYiBegihvIHWUURoO0pYTAAMkKU5qdA6iml5DH9eg1Fs7ERWZVTpyVqtooK3B5bJ1CUoYwBkEiwRXMUABqkmATIBoAtVAZAUgk7gy1uwnmwCgb8Q+lMGlpNHAmIgSgBnsJRhZg3yXhg4TxgiIA3DPEx1UJbBHYHjb4wZCvEGisVJ2yw6wZ2XQcx6hASXUQGDkTGSdDBKIwuRjkDN3QSlDDlBX2oD7EH6ATEnsZZRTH9EQJhQHkOrQF7TvBV1rMERaIgHeXUgn3A6gifZ0AyLITU24txLTolJ8A6h4SIYxMAMYC4EB9ZQA81g4xxOIwDWYgtgY+MxZCzFUoeeccBHQvkOVlPFbERAnFZ8hlZhJLkTRsagBlqyEHMdTSTBHmAmPBglixCgVu+iUoUK3iKCyEyQj8ccGLpwDwFM8w7vGXTiRwDkOepD+PMIoY63NP/ETCxVWNmICsjDMoLiKpALyPtQziQYoCcBpEPLQG7h+g1PcsAoTcyErZG+kie49zK04XcAK2dRjEHMGL4hgHHyaTEDL55CA2hpc4gYvoPlWDmE+gNqjoPVpBEAdETJjjLq8W+DgT9RAE0RsQhTHdXEfYEwi6YM2fgAlbpaW6jVCt4lekED6JgCOwRCcw7SCDakmhEzEDMTfQDKDLgDMKzFUEcVI+A+EMvnKuoYCWkBoCEXWoTARERNsLIFGdAWP97XgZyE+0Qw6dAIVkZAKpy7yiYxCd4lGCaBQQrpCsyEowsvsYMdaWLWDIAO/AiAnMHtACwPwHo+EAr8hSWJ+iIELuEONGUujUVQTqBuwisCgcZsxFZHPb6fmI0ZjJKCGjhvI5ZQuSVmwduEiAUJ7hMwAoKaxRQjgC0RWDMEZ84nyKPtAcL4GWAHqg+o2IuliN8Mhu1CMC8QakDSCexBGUPhOuHPrzooSxD9wYEvYJQ6RsKcszFaNy1NcPldUHE4AOUgigkwRHEcCnbl4BCA2fAB6pmD6BtTEeowkQB8xJNUaBE3cQW6wjEfYxFF9IVpwR7kQGfErMZSBvKeIAAAYFkCH4FyAQfgvAzVvgu9U2i4nGAdZAAs/cnCCrbl5BRi+BlA4BiKL6jYC9aTQ8gnwvkBFjMFKaK2tONbEY3MgetAHa0hrQDakVdHI0kwAEBLMsEoZnpDCuS84Pq74MabADzJQH/8WU8j2JibyIeg4jpCHUge4V+IJqcOO/uRfCIRXRECReSR35U8vmAsAtmJtAGU/ciB5qzAVgbyFFcAjtXYM5yCAR4MjQxpB0Mr7mEELwAR89EHMDHiEwyjqK6jikmwn1iBtWhFruDUAC3jYbrhQ30dBjpCcKcYGuE33YHbhzvpAaro0A01M/mOALbmCS5DAGL5GgDZjOQDSg5gqSOdUOAzx8G9+UBgA17iDbTnMLYykOPIWIkdTGJjD4r7hx8/ErTvBaEZOzGAzckkeAoenIMGyCDoA96kg+XY2Y3jJ8RcXYxyInMI7Efej44UQ8soZiSfwCjFhAP3D38KtkBEN15iAa8ClpnYA/ymF+QPA6mqw0wCzCfUPFiMetrmsDAKrh8K9mErw0QBfATKdrj/A1z5hyqw/xyACEoCmFiPEgAACJvBej7iD3wmlOzFQHrkMBIKDKQtJWVpfhAMPAA8ydwBL06jBweSgvcYpDwMQLmHBwAAuHA7wBFE94BS3CbAchr7CKwsQ/QEcONNgHr6tEHBGPKg4ERuoRgDMI+GOpAi4gEAIJ7KOmoYD9wDctBMAGhFxQhSCQIeDmbGd8GF1VSBM7mJfA4d+BaA5z8AQMRfNNWRTtg1MAYmxi2UI1BzAvsEkiCPAGfuBxBY1gOW9tzGBA7lKrI5uHMRex3IdRwAPLiCrQyeAzheAyMhO0EYTPkAPqIGHgEqDgegbIPrgIoJFIBjOQjMgSOJxgBlRAN04AdYjpYRcNdAD2AnACXnoe3Qkwx5BsjZkuA6XjkIzuyiFpzLtkEArfkWwMQoGGajq+MjocCtA4jD2I4HeADPAJaZAZA8YmJI6MsrcDAm5k5CzokAAmdx5zpYzw5kBwgiYzO6rYWYK9ib0UAC5CEADE5QyxBIijD2cZNbYW7wBSFALeMmAczEWAeSRk/y6jAwFjiIhseL0UTMWhASqGrGHRTAU6ATTQFMbEaagkMRx4FjYJACYkYRQV6AEq5jriOd5keQcXMxfhO1FoALlxFaoaMn8BgI53sASiaaVEP8yEnwgYBRaDiHrQ4BG1iOjf9RHgE4shjv8N8LYCyNnbBzCs1zwIOHAZBqek6D0Ac+AOU+bqMQMYP6uiRVTIA7xAqsRdjQo53PGZwWQ847aCNK6A55DkjZlwA5hGgYThwBg5jZgWoUQGs+TeA9ocBhRlBTRBGDaU7odFrgDbsYwEgaGrEXFngOiPgPU4J0WgyjNXkJ6kmGm4UzpyawD8djRFJYhIXhwJZb4c0jhDZUEgY8CBh6U5TAwALEo5CzGVOCIroAswAmYu0Hz0DgOB6kQGtALuFybwDGUdcFK6sQX5xud33DKgABZCQQyKDZKCLIBZM8IWAa4RT0I59mJ1BzAEsRFfSCvTc48bwLeUQDlyZUVXq+wV3NLqjZnwAxsQ5mEHK2YY+wEXYaMi4jdEPgKKITMExAW4SdM7jcG4DpWHpgZx6iSxNBMrQ+VhGwKxzDoAmQItrNgSWOEjCJkbHANFhmoe1GNYmQEwCxfCkCqWLkzcGZTGgLfqIBrkyZjGftI4F1CeB3BBtHcB2DOxewRcgnaBxAO/K7kUk4cBZXLleBvMTr3sAyB2MHbPwJuTChxp/6bB+IgH2RcioC0sA8mCFIWIsJTGLnHNJ5OLILWy+s7MHxFMAM+Cp41uLQAJY2DGdkNS3WA/DjWQce4wtcl6KS6km8HQtszAwMEZBSOs+A0J1yMEoNE2HmQRiNuRdNjIQ9RxAFVSCVJMHkCOc9drCYJpL3A5iLLYeBWbCXJVSrkX262kaAlWlNZgbKUyJhBkCIJRPMkk5LYB5AMLm9yCUYOI+Yw/BVIBX0ggtB8OEeAlhNKi0uADd0OZ4gB65KqMpzNt5OCSyNkr3YIiBWruA+AD+eQjPYWYtsAxiO9eIg0gIIAyktA8kiHjaDLxfgwWrMrER2AQBZ0BQWBkGuSkzqtn0bOxbYGobu1GZAzPyPYzcIfpzGCmapoCuwAcAUtJ3QMwmoxJvLCGUI5NIfLgCDL9fhwXJKiIRcAUewh6Bcwxm4JqFSJQvccAQWR8PtEAjPETybEcwVeDCLwGUkOxDE+06k06IEYCjaMhCkhlk4l8GQwDsoWM8mZMAVsBxriHL6QK5JUS3P2Wg7MbA5hMkpECNn8WhFALewgGFqSQJ2wIkTWPtg4ygONai5HwDRcQyPImRMpxQBrKeYzsAlMAM+xBVUwCWJXp1wzwMC7I4fj1IgAs/oBtsGjj5kIIBh7NzGewkIw6nrQw2j4WoAevMzAEIpYyHBsKcgODOEt1jBICaWIrkGlmPNoCMQuCQpsZ9ndQC2R8wc9CkQgW9MQNoEFUkUgXF0TIJbAiCKj33IIQwoxpG9WAIgiEA6a4iBPQTBi1lcowGMkkYo5Bo4ii3DAcRXJGZ57XlHOzGwP76kxECQOg7QArYBIiI5iw7McxsPYAsk7OvDHlRVECJ4FwFBrFSRwiriCMEPV1xwxZtmtGcmVyjCCAWjmBgKC1wDqQgRvhALXJA0aeud+QJXCMMAzDkQJJ9puMbwZT5fwIbUMBRYAyARYxfMjATqGY8u8xdKPQW84DHPyKUCOxhH4CQOwDXgQgOYxMpaRNejBCnUpjlVANeIhhvQBiCNvKQvcpgADA6MIg0j2BArF3BahEByu/CR0ACOHMcca0wm0ZCLYAyWCJUEApcjJu2mu2HAVULoyfcOIIidD/xFa+RFKGnLXL4jgC35SAywCApOYOuBnUNIAwChPF2DSvrCAdeAMw/AJDbmwVyOaNU6e0/gOlGyGmsLEMTKV84zmQDIOcKYwSW+YwV7IrAI+SawTKSmBzUkwyZg6EblElhZgxS4BggjqI6QRQhwMYpXWR72sxMDV4oXr5uAIBQz9eTyP0l0I5JQ/PDBBx/8aUEU3ZjNMXLQY4GCTbHzHCdgE4Aw3vXgPWFAFIYZlEE3gGcfTsBFEEg2NIGBv+EuRsz6YWO4jQDXykBKu3zGTjU/eEcKKaSQRgF1ULA1BQyG7IKMdS0Q2IcmA6BmIboNuIgPcBFIOYAdTPIaN+BSlCAVns83OAJXi5o1GFtNxcBCpMAuAAnwHeAZBhMCULIX8zjsPCcMchEoWYweTGJjAsyliGB8bOxqxwLXizs39sPGBZyBbXAhswP5NAPiOLCTxmncohUEuAbc2YIRjHIXR+BKlMF4zBAMXDGEduRtByWLdsA6AKegDTiGKAfgymYss3hHGAywEmImMBbuGIRILsKDUbSMg7kQsRu/mofbWOCa4RhO0XJ8JQ5mIYZQluM3o4COiJlHySBMHMYTqFyBJPTwPGcMPoi+4EIHNqKHglEo51AD16F47bannYDLRsp0+NWoJQkxsBAhZORIpXkLAAWj+TmGRrbgDlmKdvyCgiBmnrOHafSiJcHEMJSV3KIcCobhiYFchlCpMaxy0NjIdQHI2IlxMbRsQAFshJotWFJY2Im6BwBLZ55gHgHlK3+gAmrnQWjDKwTwLwJGtFRSQTV6rGCei4iAqxAq75wl2ImBS8eZDZjXwsRqNMBKAEPRp6hjEGwTAMCLzdQPwMIT2sEAS+HKXexgc0roDlyFWOxvGUMhwMXjyhmEpbBxBUdgKYLJSJFJMNAXJcN4i70ZAloW4Q8BlkLKbniwOXYOIL8IoVJinGKQAtePN0cxroSZw7gBWwHsgYbYhKQRAKBmNZ8ROlHNUSKB4DTkrKIJ7E4RrSDXIHbttcMgGwFuIARvdmyEiT14AXsxlroMDYwAeiOmLYfRt4HnOSNQA3uRRCW0HRtggUvQtLLb3tNGgHuImi3o1qGaNTgCi+FLWoZUApsBABIi2MUPLA0Q+M0T+qKGAGvB0JMSsD35NAcuQb4ZprovAW4jav5GvwxVzEQNbIaafVgSWNmLoh0AwBDFv7zAGMLON3YTjxxIzyKct9B2NDIX8RVoFklxaG4VATcSKckUIiyCQD7DkQCrwTCQT5RTThr3efiVuxxgK9uOsoEOsAMAABZPurOdL2ixQGuw0UgJ1xhGMDIgPwpHHmMD23MVd+ACpNq4wn1X4F7CEsMDbGtg4T7hQHaBtRETzb8c4yVf0J/ASgnpXGENCaiBnpNw5wQC2J6fNIfsp6gUyij3JcDdhBDEMYxLYGAHzYABULR8Iof7XOACm5iC5soAAECEL1HEMZ4FHOQiF3nEJ1K5zCWOs5opDCKWYNQQoOsgJPyHDmxPI7NggfWUQTviqT9wRxEzkM/YFsBCOv0gQIwplKGlkkK+8J50nnKPo2xlFclMpAfRtEQOCwvzFwIB7iAEAvMZAgF6z4EjGQPYHhvbUQLraeUOixw0wE0lmgMYx2FkO80hQBxCGGMYRj9iicIXT8TAw5xDdwrB/rzGA9hOeHnvWWc7MXBXISgYxhuMozDwgv7IgAePlHVYZhBLJkI7KFnEQLaTRuM+8QZuLa7MJxvrGKxkMBsN8Ohh6cJ6/uc8r3hPEdXYe+FFCgLYnp/0gwF2U4JUSKLHDsDNhaMl66nHNgIbVSwiGBZ4/EhwwJcgImhLN4Yxi3Uc5DEfqKYJI2Z4bAgpnNmPFewOpZoEOGA3sWqXJMJGgBtMM5aQhrkdBtL4Fy/g/xEpgXRjGHPZwnkekEoevzmDogoxWzCB7clnAAywm+jUZvc8gHsMS3Nm8KIXPI9IJgj4x8QRfyKJozVsFbHUgO35Tmc4YDWxS5ahn1UE3GYYFLRjO9nUIrTATjUfWEsEChjgvxY5i6loBs9VwoGpXcQk552FATcbT4ayidfUx9DyiA0MwhX410XCID4idELLVtwhqylB6uz/ctAA9xsxXrRiMsf5TDUNmBEKELCgp5qvHGAsLXFDDPz7EsZBtNAu8GQwADkwt4XY5bFDDxcY4K7D0YzB/M1uLvKQ93ykjIrPlPKRNO5ziR38Q28C4IB/YghDeI6hBZRvrEcDTO6gWYynNH8bAe49CtwJIZwOdPpMLOEE4YYS+FeGwY9EviDksHCGNsiA1RSVz2qMVQT8OqJkHI+pQkhgIp8tBMAAw2Nik4eGLsAvJI4MYCufsBZBqeUhybSCA8anpE7WGlxs5CcCAJDgRgdW8IQfVKCHPwDFTD3l5HCKZPxwhAALZkSQLGdjXGCAn0rciGU8C9jMcS785SKH2cQ/jKAdImDLiPByU4XZscAPJnIc/uKIDFg1IcXa3wYl8DNcp6iWY4y3ioCfJ9HJLvG2EeDnSSvUZhk44Ke4RizyUG9rFQE/T/JbrTM5A7/GFfLbYbBVDvw8iVk7bvQDfpBPSaVxqcER+HkSq5Zm7GknBn6eRC+HdB/gR/mIUK3WOMFBA/w8Ca/d1tsCv8vfhJetRi/g90nLlEHuS4CfJzHJDa0V8Nss5wUFhUq1LNDcgJ8nsUmq6g38PMt5QTkuwTbm9wk=" alt="Givery">
+  </div>
+  <nav class="header-nav">
+    <a href="#session01">Session 01</a>
+    <a href="#session02">Session 02</a>
+    <a href="#session03">Session 03</a>
+    <a href="#session04">Session 04</a>
+    <button class="toggle-all-btn" id="toggleAllBtn" onclick="toggleAll()">全ての情報を表示する</button>
+  </nav>
+</div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-badge">ENGINEER TRAINING 2026</div>
+  <h1>生成<span>AI</span>開発トレンド研修<br>静岡会場</h1>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      2026年2月24日（火）
+    </div>
+    <div class="hero-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      2時間
+    </div>
+    <div class="hero-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      32名
+    </div>
+    <div class="hero-meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      グランディエールブケトーカイ
+    </div>
+  </div>
+</div>
+
+<!-- ===== AGENDA ===== -->
+<div class="agenda">
+  <div class="agenda-title">タイムテーブル</div>
+  <div class="agenda-grid">
+    <a href="#session01" class="agenda-card" style="text-decoration:none;color:inherit">
+      <div class="agenda-time">0:00</div>
+      <div class="agenda-body">
+        <h3>Session 01 : オリエンテーション<span class="agenda-dur">15分</span></h3>
+        <p>講師紹介 / アジェンダとゴール / 成果物紹介 / AI開発トレンド概観 / リスクとガバナンス</p>
+      </div>
+    </a>
+    <a href="#session02" class="agenda-card" style="text-decoration:none;color:inherit">
+      <div class="agenda-time">0:15</div>
+      <div class="agenda-body">
+        <h3>Session 02 : VSCodeでの生成AI活用ベストプラクティス<span class="agenda-dur">25分</span></h3>
+        <p>デモ : ブラウザ用AIチャットアプリ開発 / 作業効率化手法 / Agentモード / AI並列駆動開発</p>
+      </div>
+    </a>
+    <div class="agenda-card is-break">
+      <div class="agenda-time">0:40</div>
+      <div class="agenda-body"><h3>休憩<span class="agenda-dur">10分</span></h3><p></p></div>
+    </div>
+    <a href="#session03" class="agenda-card" style="text-decoration:none;color:inherit">
+      <div class="agenda-time">0:50</div>
+      <div class="agenda-body">
+        <h3>Session 03 : AI駆動開発における選択肢<span class="agenda-dur">40分</span></h3>
+        <p>AI搭載IDE比較 / CLI搭載LLM / Rulesの重要性 / デモ : 外部コンテキスト引用とMCP</p>
+      </div>
+    </a>
+    <a href="#session04" class="agenda-card" style="text-decoration:none;color:inherit">
+      <div class="agenda-time">1:30</div>
+      <div class="agenda-body">
+        <h3>Session 04 : 質疑応答・ディスカッション<span class="agenda-dur">20分</span></h3>
+        <p>技術均一化と成長機会 / ジュニア・ミドル育成 / シニアの行動変容</p>
+      </div>
+    </a>
+    <div class="agenda-card is-break">
+      <div class="agenda-time">1:50</div>
+      <div class="agenda-body"><h3>アンケート・閉会<span class="agenda-dur">10分</span></h3><p></p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================= -->
+<!-- SESSION 01 -->
+<!-- ========================================= -->
+<div class="section" id="session01">
+<div class="section-num">Session 01</div>
+<div class="section-title">オリエンテーション</div>
+<p class="section-lead">
+生成AIを活用した開発手法の全体像を掴み、研修のゴールを共有する。2021年のGitHub Copilot登場から5年。AIは補助ツールからチームメンバーへと立場を変えた。
+</p>
+
+<!-- 研修ゴール -->
+<div class="callout">
+  <div class="callout-title">本研修のゴール</div>
+  <p>
+    自社で試したいAI開発ツールが1つ以上決まっている。AIツールの「育て方」を理解している。チームへの導入イメージが持ち帰れる。
+  </p>
+</div>
+
+<!-- 統計（クリックで数字が見える） -->
+<p style="font-size:.82rem;color:var(--gray-500);margin-bottom:8px;text-align:center">各カードをクリックすると数字が表示されます</p>
+<div class="stat-grid">
+  <div class="stat" onclick="this.querySelector('.reveal-num').classList.add('is-revealed')">
+    <div class="reveal-num">
+      <div class="num-hidden">92%</div>
+      <div class="num-hint">CLICK</div>
+    </div>
+    <div class="stat-label">AI開発ツールを利用する<br>開発者の割合</div>
+    <a href="https://www.publickey1.jp/blog/23/92aigithub500.html" target="_blank" class="source-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>出典</a>
+  </div>
+  <div class="stat" onclick="this.querySelector('.reveal-num').classList.add('is-revealed')">
+    <div class="reveal-num">
+      <div class="num-hidden">55%</div>
+      <div class="num-hint">CLICK</div>
+    </div>
+    <div class="stat-label">GitHub Copilot導入後の<br>平均生産性向上率</div>
+    <a href="https://resources.github.com/ja/learn/pathways/copilot/essentials/measuring-the-impact-of-github-copilot/" target="_blank" class="source-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>出典</a>
+  </div>
+  <div class="stat" onclick="this.querySelector('.reveal-num').classList.add('is-revealed')">
+    <div class="reveal-num">
+      <div class="num-hidden">10x</div>
+      <div class="num-hint">CLICK</div>
+    </div>
+    <div class="stat-label">一部タスクでの<br>開発速度向上倍率</div>
+    <a href="https://www.gizmodo.jp/2023/06/github-survey-92-percent-programmers-are-using-ai-tools.html" target="_blank" class="source-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>出典</a>
+  </div>
+  <div class="stat" onclick="this.querySelector('.reveal-num').classList.add('is-revealed')">
+    <div class="reveal-num">
+      <div class="num-hidden">97M+</div>
+      <div class="num-hint">CLICK</div>
+    </div>
+    <div class="stat-label">MCP SDKの<br>月間ダウンロード数</div>
+    <a href="https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation" target="_blank" class="source-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>出典</a>
+  </div>
+</div>
+
+<!-- AI開発トレンド年表 -->
+<div class="topic">
+  <div class="topic-title"><span>01</span> 生成AI開発トレンドの変遷</div>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>年</th><th>出来事</th><th>意味</th></tr>
+    <tr><td>2021</td><td><a href="https://github.blog/news-insights/product-news/github-copilot-ai-pair-programmer/" target="_blank">GitHub Copilot テクニカルプレビュー</a></td><td>AIコーディングの幕開け</td></tr>
+    <tr><td>2022</td><td><a href="https://github.blog/news-insights/product-news/github-copilot-is-generally-available-to-all-developers/" target="_blank">GitHub Copilot 一般公開</a></td><td>「AIペアプログラミング」が現実に</td></tr>
+    <tr><td>2023</td><td><a href="https://openai.com/index/gpt-4/" target="_blank">GPT-4</a>登場 / <a href="https://www.anthropic.com/news/claude-2" target="_blank">Claude 2</a> / <a href="https://cursor.sh/" target="_blank">Cursor</a>登場</td><td>高精度コード生成と専用IDEの誕生</td></tr>
+    <tr><td>2024</td><td><a href="https://www.anthropic.com/news/claude-3-family" target="_blank">Claude 3</a> / <a href="https://openai.com/index/hello-gpt-4o/" target="_blank">GPT-4o</a> / <a href="https://deepmind.google/technologies/gemini/" target="_blank">Gemini 1.5 Pro</a></td><td>マルチモデル時代の到来</td></tr>
+    <tr><td>2025</td><td><a href="https://www.publickey1.jp/blog/25/anthropicclaude_codeclaude_37_sonnet.html" target="_blank">Claude Code</a> / <a href="https://www.publickey1.jp/blog/25/github_copilot_agent_mode.html" target="_blank">Copilot Agent Mode</a> / <a href="https://www.publickey1.jp/blog/25/awsaikirovs_codeai.html" target="_blank">Kiro</a></td><td>エージェント型AIへの転換</td></tr>
+    <tr><td class="highlight">2026</td><td class="highlight">各ツールの成熟と統合</td><td class="highlight">AI駆動開発がスタンダードに</td></tr>
+  </table>
+  </div>
+
+  <button class="reveal-btn" data-label="エビデンス" onclick="revealSection(this)">エビデンスを表示する</button>
+  <div class="instructor-reveal">
+  <!-- 裏打ちソース -->
+  <div style="margin-top:12px;padding:12px 16px;background:var(--gray-100);border-radius:var(--radius);font-size:.8rem;line-height:1.7;color:var(--gray-700)">
+    <span style="font-weight:700;color:var(--red);font-size:.7rem;letter-spacing:.05em">EVIDENCE</span><br>
+    <a href="https://www.publickey1.jp/blog/23/92aigithub500.html" target="_blank">92%がAIを仕事に活用 &#8212; Publickey</a><br>
+    <a href="https://gihyo.jp/article/2025/12/5-trends-that-transform-software-development-in-japan-2026" target="_blank">2026年、日本のソフトウェア開発を変える5つの潮流 &#8212; 技術評論社</a><br>
+    <a href="https://www.microsoft.com/ja-jp/customers/story/22781-hitachi-github" target="_blank">日立製作所がGitHub Copilotで開発生産性を向上 &#8212; Microsoft</a><br>
+    <a href="https://www.publickey1.jp/blog/25/windowsmcpaiwindows.html" target="_blank">WindowsがMCPをサポートすると発表 &#8212; Publickey</a><br>
+    <a href="https://www.watch.impress.co.jp/docs/news/2064221.html" target="_blank">AWS、仕様駆動開発AIエディターKiroを一般公開 &#8212; Impress Watch</a>
+  </div>
+  </div>
+</div>
+
+<!-- 用語整理 -->
+<div class="topic">
+  <div class="topic-title"><span>02</span> 押さえておきたいキーワード</div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-label">CONCEPT</div>
+      <h4>AI駆動開発</h4>
+      <p>AIが開発プロセスの中核を担う手法。コード生成からテスト、レビュー、デプロイまで、AIがパイプライン全体に関与する。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">CONCEPT</div>
+      <h4>バイブコーディング</h4>
+      <p>自然言語で「こういうものが欲しい」と伝え、AIにコードを書かせるスタイル。<a href="https://x.com/karpathy/status/1886192184808149383" target="_blank">Andrej Karpathy</a>が命名。コードを一切書かない開発体験を指す。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">CONCEPT</div>
+      <h4>エージェントコーディング</h4>
+      <p>AIが自律的にファイルを読み、コードを書き、テストを実行する。人間は指示と承認に集中し、実装はAIに委ねる。</p>
+    </div>
+  </div>
+</div>
+
+<!-- リスク・ガバナンス -->
+<div class="topic">
+  <div class="topic-title"><span>03</span> 開発におけるリスクとガバナンス</div>
+  <p style="font-size:.9rem;color:var(--gray-700);margin-bottom:20px">
+    AIが書いたコードを盲信するのは危険だ。生成コードには脆弱性が混入する可能性がある。機密情報の送信、ライセンス違反、品質低下。リスクは多岐にわたる。
+  </p>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-label">RISK</div>
+      <h4>セキュリティ</h4>
+      <p>生成コードの脆弱性、機密情報のAI送信、サプライチェーン攻撃。<a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">OWASP LLM Top 10</a>が指針になる。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">RISK</div>
+      <h4>ライセンス・著作権</h4>
+      <p>学習データの権利問題、生成コードの帰属、OSSライセンス違反。法的整理はまだ途上にある。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">RISK</div>
+      <h4>品質・依存</h4>
+      <p>レビュー不足による本番障害、エンジニアのスキル低下、ベンダーロックイン。導入と同時にガバナンス設計が必要になる。</p>
+    </div>
+  </div>
+
+  <button class="reveal-btn" data-label="ガバナンス具体例" onclick="revealSection(this)">ガバナンス具体例を表示する</button>
+  <div class="instructor-reveal">
+  <div class="callout">
+    <div class="callout-title">ガバナンス施策の具体例</div>
+    <p>
+      AIツール利用ポリシーの策定、機密情報のマスキングルール、生成コードのレビュー必須化、定期的なセキュリティ監査、利用ログの取得と分析。金融機関では「AI生成コードは必ず2名以上でレビュー」というルールを設ける企業も出ている。
+    </p>
+  </div>
+  </div>
+</div>
+
+<div class="sources">
+  <div class="sources-title">Session 01 参考リンク</div>
+  <ul class="sources-list">
+    <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a></li>
+    <li><a href="https://www.stateof.ai/" target="_blank">State of AI Report</a></li>
+    <li><a href="https://aiindex.stanford.edu/" target="_blank">Stanford AI Index Report</a></li>
+    <li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">OWASP LLM Top 10</a></li>
+    <li><a href="https://resources.github.com/copilot-trust-center/" target="_blank">GitHub Copilot Trust Center</a></li>
+    <li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank">NIST AI Risk Management Framework</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- ========================================= -->
+<!-- SESSION 02 -->
+<!-- ========================================= -->
+<div class="section" id="session02">
+<div class="section-num">Session 02</div>
+<div class="section-title">VSCodeでの生成AI活用ベストプラクティス</div>
+<p class="section-lead">
+VSCodeとGitHub Copilotを使ったデモを通じて、バイブコーディングの威力とAgent Modeの自律性、Git Worktreeによる並列開発を体感する。
+</p>
+
+<!-- デモ概要 -->
+<div class="callout">
+  <div class="callout-title">デモで作るもの</div>
+  <p>
+    営業担当がお客様との会話メモを貼り付けるだけで、エンジニアへの引継ぎに必要な技術要件を自動で抽出・整理するWebアプリ。HTML/CSS/JSのみ、1ファイル完結。プロンプト一発で生成し、Agent Modeで機能拡張する。
+  </p>
+</div>
+
+<button class="demo-btn" onclick="openModal('demo-vibe')">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+  デモ : バイブコーディング
+</button>
+
+<!-- VSCode + Copilot -->
+<div class="topic">
+  <div class="topic-title"><span>01</span> VSCode と GitHub Copilot</div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-label">TOOL</div>
+      <h4><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></h4>
+      <p>世界で最も使われる開発エディタ。無料、クロスプラットフォーム、豊富な<a href="https://marketplace.visualstudio.com/" target="_blank">拡張機能</a>。2025年にAgent Mode対応を果たし、AI開発の中核を担う。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">TOOL</div>
+      <h4><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a></h4>
+      <p>GitHubとOpenAIの共同開発によるAIアシスタント。コードの文脈を理解し、リアルタイムで次のコードを提案する。2026年現在はマルチモデル対応で、<a href="https://www.anthropic.com/" target="_blank">Claude</a>統合も実現。月額$10から。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ショートカット -->
+<div class="topic">
+  <div class="topic-title"><span>02</span> 覚えておきたいショートカット</div>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>操作</th><th>Mac</th><th>Windows</th><th>用途</th></tr>
+    <tr><td>補完を採用</td><td><code>Tab</code></td><td><code>Tab</code></td><td>提案されたコードを適用</td></tr>
+    <tr><td>次の候補</td><td><code>Option + ]</code></td><td><code>Alt + ]</code></td><td>別の提案を表示</td></tr>
+    <tr><td>Copilot Chat</td><td><code>Cmd + Shift + I</code></td><td><code>Ctrl + Shift + I</code></td><td>チャットパネルを起動</td></tr>
+    <tr><td>インライン提案</td><td><code>Option + \</code></td><td><code>Alt + \</code></td><td>提案をトリガー</td></tr>
+    <tr><td>コマンドパレット</td><td><code>Cmd + Shift + P</code></td><td><code>Ctrl + Shift + P</code></td><td>あらゆる操作の起点</td></tr>
+  </table>
+  </div>
+</div>
+
+<!-- コンテキストの渡し方 -->
+<div class="topic">
+  <div class="topic-title"><span>03</span> コンテキストの渡し方で精度が変わる</div>
+  <p style="font-size:.9rem;color:var(--gray-700);margin-bottom:16px">
+    Copilotは開いているファイルの文脈を自動で読む。だが、明示的にコンテキストを渡せば精度は格段に上がる。
+  </p>
+  <ul class="check-list">
+    <li>関連ファイルをタブで開いておく</li>
+    <li>コメントで意図を説明する（WHYを書く）</li>
+    <li>Copilot Chatで <code>@workspace</code> を使い、プロジェクト全体を参照させる</li>
+    <li>インラインコメントでヒントを与える</li>
+  </ul>
+  <!-- Before / After で差を見せる -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+    <div>
+      <div style="font-size:.75rem;font-weight:700;color:var(--gray-500);margin-bottom:6px;letter-spacing:.05em">BAD : コンテキストなし</div>
+      <div class="code-block" style="margin:0;white-space:pre;line-height:1.6"><span class="comment"># 関数を作って</span>
+
+<span class="kw">def</span> <span class="key">process</span>(data):
+    <span class="kw">return</span> data</div>
+      <p style="font-size:.78rem;color:var(--gray-500);margin-top:8px">何をする関数か不明。命名も曖昧。型も戻り値もわからない。</p>
+    </div>
+    <div>
+      <div style="font-size:.75rem;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:.05em">GOOD : コンテキストあり</div>
+      <div class="code-block" style="margin:0;white-space:pre;line-height:1.6"><span class="comment"># 受注CSVを読み込み、月別売上を集計する関数</span>
+<span class="comment"># 入力: CSVファイルパス (date, amount列あり)</span>
+<span class="comment"># 出力: {月: 合計金額} の辞書</span>
+<span class="comment"># pandasを使用すること</span>
+
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="kw">def</span> <span class="key">aggregate_monthly_sales</span>(csv_path: <span class="key">str</span>) -&gt; <span class="key">dict</span>:
+    df = pd.read_csv(csv_path)
+    df[<span class="str">"date"</span>] = pd.to_datetime(df[<span class="str">"date"</span>])
+    monthly = df.groupby(
+        df[<span class="str">"date"</span>].dt.to_period(<span class="str">"M"</span>)
+    )[<span class="str">"amount"</span>].sum()
+    <span class="kw">return</span> monthly.to_dict()</div>
+      <p style="font-size:.78rem;color:var(--red);margin-top:8px">意図・入出力・利用ライブラリを明記。Copilotが正確に補完できる。</p>
+    </div>
+  </div>
+</div>
+
+<!-- Agent Mode -->
+<div class="topic">
+  <div class="topic-title"><span>04</span> <a href="https://docs.github.com/en/copilot/using-github-copilot/using-copilot-agent-mode" target="_blank">Agent Mode</a> &#8212; AIが自律的に動く</div>
+  <p style="font-size:.9rem;color:var(--gray-700);margin-bottom:16px">
+    2025年に登場した<a href="https://github.blog/news-insights/product-news/github-copilot-agent-mode/" target="_blank">Copilot Agent Mode</a>。単純な補完を超え、タスクを理解して複数ファイルを横断した変更を自律的に行う。開発者は指示を出し、結果を確認するだけ。
+  </p>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-label">FEATURE</div>
+      <h4>自律的タスク実行</h4>
+      <p>自然言語で「履歴機能を追加して」と伝えるだけ。ファイル読み取り、コード修正、エラー解決をAIが自分で判断して実行する。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">FEATURE</div>
+      <h4>複数ファイル同時編集</h4>
+      <p>HTMLの構造変更、CSSの追加、JSのロジック実装を一度の指示で横断的に処理。人間が介在しない時間が生まれる。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">FEATURE</div>
+      <h4>エラー自動修正</h4>
+      <p>コードを書いてエラーが出たら、自分でログを読み、原因を特定し、修正する。ジュニアエンジニアと同等の自走力がある。</p>
+    </div>
+  </div>
+
+  <button class="demo-btn" onclick="openModal('demo-agent')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    デモ : Agent Mode で機能追加
+  </button>
+</div>
+
+<!-- フォルダ構成とRules -->
+<div class="topic">
+  <div class="topic-title"><span>05</span> フォルダ構成と Copilot Instructions</div>
+  <p style="font-size:.9rem;color:var(--gray-700);margin-bottom:16px">
+    AIが理解しやすいフォルダ構成にすることで、生成コードの品質が上がる。<a href="https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot" target="_blank"><code>.github/copilot-instructions.md</code></a> にプロジェクト固有のルールを書けば、すべての提案に反映される。
+  </p>
+  <div class="code-block" style="white-space:pre;line-height:1.6">project/
+├── .github/
+│   └── copilot-instructions.md  <span class="comment"># Copilot用ルール</span>
+├── .cursor/
+│   └── rules/                   <span class="comment"># Cursor用ルール</span>
+├── CLAUDE.md                    <span class="comment"># Claude Code用ルール</span>
+├── src/
+│   ├── api/
+│   ├── models/
+│   ├── services/
+│   └── utils/
+├── tests/
+├── docs/
+├── README.md
+└── pyproject.toml</div>
+
+  <button class="reveal-btn" data-label="Instructions例" onclick="revealSection(this)">Instructions例を表示する</button>
+  <div class="instructor-reveal">
+  <p style="font-size:.88rem;color:var(--gray-700);margin-bottom:12px">
+    copilot-instructions.md の具体例。チームのコーディング規約をそのまま書けばいい。曖昧な指示は効かない。具体的に、命令形で。
+  </p>
+  <div class="code-block" style="white-space:pre;line-height:1.6"><span class="comment"># .github/copilot-instructions.md</span>
+
+<span class="comment">## 言語・フレームワーク</span>
+<span class="comment"># どの言語で書くか迷わせない</span>
+- TypeScript を使用すること (JavaScript 不可)
+- React 19 + Next.js 15 App Router で実装すること
+- スタイルは Tailwind CSS を使用すること
+
+<span class="comment">## コーディングルール</span>
+<span class="comment"># any禁止は代替手段とセットで書く</span>
+- any 型は禁止。unknown + 型ガードを使うこと
+- 変数名・関数名は camelCase、型名は PascalCase
+- コメントは日本語で記述すること
+
+<span class="comment">## エラーハンドリング</span>
+<span class="comment"># 「適切に」では伝わらない。具体パターンを示す</span>
+- API呼び出しは必ず try-catch で囲むこと
+- エラーは console.error でログ出力し、ユーザーには toast で通知
+- バリデーションには Zod を使用すること
+
+<span class="comment">## 禁止事項</span>
+<span class="comment"># やってほしくないことは明示する</span>
+- npm パッケージの追加は事前に確認を求めること
+- 環境変数をハードコードしないこと
+- テストなしのPR作成は不可</div>
+
+  <div style="margin-top:16px;padding:14px 18px;background:var(--gray-100);border-radius:var(--radius);font-size:.82rem;color:var(--gray-700);line-height:1.7">
+    <span style="font-weight:700;color:var(--dark)">Instructionsを追加・削除する判断基準</span><br>
+    追加するとき: AIが同じミスを2回繰り返したら、その禁止ルールを追加する。レビューで毎回指摘するパターンがあれば先回りして書く。<br>
+    削除するとき: チーム全員がそのルールなしでも守れるようになったら消す。Instructionsは短いほど効く。50行を超えたら優先度の低い項目を削る。
+  </div>
+  </div>
+</div>
+
+<!-- AI並列駆動開発 -->
+<div class="topic">
+  <div class="topic-title"><span>06</span> <a href="https://git-scm.com/docs/git-worktree" target="_blank">Git Worktree</a> で AI並列駆動開発</div>
+  <p style="font-size:.9rem;color:var(--gray-700);margin-bottom:16px">
+    1つのリポジトリから複数の作業ディレクトリを同時に作成する。ブランチ切り替え不要で、複数のAIセッションを並列実行できる。シーケンシャルに30分かかる作業を10分で終わらせる技術。
+  </p>
+  <div class="code-block" style="white-space:pre;line-height:1.6"><span class="comment"># Worktreeを2つ作成（ブランチ切替不要で並行作業できる）</span>
+$ git worktree add ../feature-auth feature/authentication
+$ git worktree add ../feature-dashboard feature/dashboard
+
+<span class="comment"># 一覧を確認</span>
+$ git worktree list
+<span class="str">/Users/dev/myapp              abc1234 [main]</span>
+<span class="str">/Users/dev/feature-auth       def5678 [feature/authentication]</span>
+<span class="str">/Users/dev/feature-dashboard   ghi9012 [feature/dashboard]</span>
+
+<span class="comment"># 各ディレクトリでVSCodeを開き、3つのCopilotを同時に走らせる</span>
+$ code ../feature-auth
+$ code ../feature-dashboard</div>
+
+  <!-- BOSS-Worker図 -->
+  <button class="reveal-btn" data-label="BOSS-Worker構成図" onclick="revealSection(this)">BOSS-Worker構成図を表示する</button>
+  <div class="instructor-reveal">
+  <div style="margin:24px 0">
+    <div style="font-size:.88rem;font-weight:700;margin-bottom:12px">BOSS-Worker-評価AI 構成</div>
+    <div class="diagram">
+              ┌─────────────┐
+              │   BOSS AI   │
+              │  (統括・計画) │
+              └──────┬──────┘
+                     │
+        ┌────────────┼────────────┐
+        v            v            v
+ ┌────────────┐┌────────────┐┌────────────┐
+ │ Worker AI  ││ Worker AI  ││ Worker AI  │
+ │ (機能A実装) ││ (機能B実装) ││ (テスト作成) │
+ └────────────┘└────────────┘└────────────┘
+        │            │            │
+        └────────────┼────────────┘
+                     v
+              ┌─────────────┐
+              │   評価 AI   │
+              │  (レビュー)  │
+              └─────────────┘</div>
+  </div>
+  </div><!-- /instructor-reveal (BOSS-Worker) -->
+
+  <button class="demo-btn" onclick="openModal('demo-worktree')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    デモ : Git Worktree 並列開発
+  </button>
+</div>
+
+<div class="sources">
+  <div class="sources-title">Session 02 参考リンク</div>
+  <ul class="sources-list">
+    <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code 公式</a></li>
+    <li><a href="https://code.visualstudio.com/docs" target="_blank">VSCode ドキュメント</a></li>
+    <li><a href="https://marketplace.visualstudio.com/" target="_blank">VSCode 拡張機能マーケット</a></li>
+    <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a></li>
+    <li><a href="https://docs.github.com/en/copilot" target="_blank">Copilot ドキュメント</a></li>
+    <li><a href="https://github.blog/tag/github-copilot/" target="_blank">Copilot Blog</a></li>
+    <li><a href="https://docs.github.com/en/copilot/using-github-copilot/using-copilot-agent-mode" target="_blank">Copilot Agent Mode ドキュメント</a></li>
+    <li><a href="https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot" target="_blank">Copilot Instructions 設定ガイド</a></li>
+    <li><a href="https://git-scm.com/docs/git-worktree" target="_blank">Git Worktree ドキュメント</a></li>
+    <li><a href="https://www.atlassian.com/git/tutorials/git-worktree" target="_blank">Atlassian Git Worktree チュートリアル</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- ========================================= -->
+<!-- SESSION 03 -->
+<!-- ========================================= -->
+<div class="section" id="session03">
+<div class="section-num">Session 03</div>
+<div class="section-title">AI駆動開発における選択肢</div>
+<p class="section-lead">
+AI搭載IDEとCLI搭載LLM。2026年現在、選択肢は爆発的に増えた。どれを選ぶかより、どう「育てる」かが差を生む。すべてに共通するのはRules。
+</p>
+
+<!-- AI搭載IDE -->
+<div class="topic">
+  <div class="topic-title"><span>01</span> AI搭載IDE &#8212; 4つの選択肢</div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="tool-icon" style="background:#7C3AED">Cursor</div>
+      <div class="card-label">IDE</div>
+      <h4><a href="https://cursor.sh/" target="_blank">Cursor</a></h4>
+      <p>VSCodeフォーク。Chat / Composer / Inline Editの3モード。マルチモデル対応で<a href="https://www.anthropic.com/" target="_blank">Claude</a>もGPTも使える。2023年登場以降、急速にシェアを拡大。月額$20から。</p>
+    </div>
+    <div class="card">
+      <div class="tool-icon" style="background:#2563EB">AG</div>
+      <div class="card-label">IDE</div>
+      <h4><a href="https://antigravity.dev/" target="_blank">Antigravity</a></h4>
+      <p>2025年登場の次世代IDE。従来のエディタパラダイムを根本から見直した。意図ベースの開発フロー、AI生成コードのトレーサビリティが特徴。独自UIで非VSCodeベース。</p>
+    </div>
+    <div class="card">
+      <div class="tool-icon" style="background:#FF9900">Kiro</div>
+      <div class="card-label">IDE</div>
+      <h4><a href="https://aws.amazon.com/kiro/" target="_blank">Kiro (AWS)</a></h4>
+      <p>AWSが2025年に発表。VSCodeベースで<a href="https://aws.amazon.com/bedrock/" target="_blank">Bedrock</a>統合。IAMアクセス制御、CloudWatch連携、VPC内利用対応。エンタープライズのセキュリティ要件を満たす設計。</p>
+    </div>
+    <div class="card">
+      <div class="tool-icon" style="background:#007ACC">VS</div>
+      <div class="card-label">IDE</div>
+      <h4><a href="https://code.visualstudio.com/" target="_blank">VSCode</a> + <a href="https://github.com/features/copilot" target="_blank">Copilot</a></h4>
+      <p>最も利用者が多い組み合わせ。Agent Mode対応で機能面でもCursorと肩を並べる。月額$10と導入ハードルが低い。拡張機能エコシステムがそのまま使える。</p>
+    </div>
+  </div>
+
+  <button class="reveal-btn" data-label="IDE比較表" onclick="revealSection(this)">IDE比較表を表示する</button>
+  <div class="instructor-reveal">
+  <!-- IDE比較表 -->
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>項目</th><th><a href="https://cursor.sh/" target="_blank" style="color:var(--white)">Cursor</a></th><th><a href="https://antigravity.dev/" target="_blank" style="color:var(--white)">Antigravity</a></th><th><a href="https://aws.amazon.com/kiro/" target="_blank" style="color:var(--white)">Kiro</a></th><th>VSCode+Copilot</th></tr>
+    <tr><td>ベース</td><td>VSCode</td><td>独自</td><td>VSCode</td><td>VSCode</td></tr>
+    <tr><td>月額</td><td>$20〜</td><td>未発表</td><td>AWS課金</td><td>$10〜</td></tr>
+    <tr><td>AIモデル</td><td>複数選択可</td><td>独自</td><td>Bedrock</td><td>OpenAI + Claude</td></tr>
+    <tr><td>拡張機能</td><td>VSCode互換</td><td>独自</td><td>VSCode互換</td><td>VSCode標準</td></tr>
+    <tr><td>企業導入</td><td>増加中</td><td>少</td><td>AWS顧客中心</td><td class="highlight">最多</td></tr>
+    <tr><td>強み</td><td>Composer</td><td>新パラダイム</td><td>セキュリティ</td><td>エコシステム</td></tr>
+  </table>
+  </div>
+  </div>
+</div>
+
+<!-- Rules -->
+<div class="topic">
+  <div class="topic-title"><span>02</span> すべてに共通するRulesの重要性</div>
+  <p style="font-size:.9rem;color:var(--gray-700);margin-bottom:16px">
+    どのIDEを選んでも、「ルール」の設計が成果を左右する。AIにプロジェクト固有の指示を与え、一貫した出力を得る。ルールなしのAIは、プロジェクトを知らない新入社員と同じだ。
+  </p>
+
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>ツール</th><th>Rulesファイル</th><th>配置場所</th></tr>
+    <tr><td><a href="https://docs.cursor.sh/context/rules" target="_blank">Cursor</a></td><td><code>.cursorrules</code></td><td>プロジェクトルート</td></tr>
+    <tr><td><a href="https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot" target="_blank">GitHub Copilot</a></td><td><code>copilot-instructions.md</code></td><td><code>.github/</code></td></tr>
+    <tr><td><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank">Claude Code</a></td><td><code>CLAUDE.md</code></td><td>プロジェクトルート</td></tr>
+    <tr><td><a href="https://aws.amazon.com/kiro/" target="_blank">Kiro</a></td><td><code>.kirorc</code></td><td>プロジェクトルート</td></tr>
+  </table>
+  </div>
+
+  <button class="reveal-btn" data-label="育成マインド" onclick="revealSection(this)">育成マインドを表示する</button>
+  <div class="instructor-reveal">
+  <div class="callout">
+    <div class="callout-title">「AIツールを育てる」マインド</div>
+    <p>
+      導入して終わりではない。初期ルール設定 → 生成結果の観察 → ルール改善 → チーム共有 → 継続メンテナンス。このサイクルを回すチームが成果を出す。失敗パターンをルールに追加し、成功パターンを横展開する。
+    </p>
+  </div>
+  </div>
+
+  <button class="demo-btn" onclick="openModal('demo-rules')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    デモ : Rules 設定と効果の違い
+  </button>
+
+  <!-- 育成サイクル -->
+  <div class="flow">
+    <div class="flow-step is-active">初期ルール設定</div>
+    <div class="flow-arrow">&#8594;</div>
+    <div class="flow-step">生成結果の観察</div>
+    <div class="flow-arrow">&#8594;</div>
+    <div class="flow-step">ルールの改善</div>
+    <div class="flow-arrow">&#8594;</div>
+    <div class="flow-step">チームで共有</div>
+    <div class="flow-arrow">&#8594;</div>
+    <div class="flow-step">継続メンテナンス</div>
+  </div>
+</div>
+
+<!-- CLI搭載LLM -->
+<div class="topic">
+  <div class="topic-title"><span>03</span> CLI搭載LLM &#8212; ターミナルからAIを使う</div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="tool-icon" style="background:#D97706">CC</div>
+      <div class="card-label">CLI</div>
+      <h4><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank">Claude Code</a></h4>
+      <p><a href="https://www.anthropic.com/" target="_blank">Anthropic</a>社提供。ターミナルネイティブで、ファイル操作・Git連携・マルチファイル編集が得意。エージェント的動作が最も強力。CLAUDE.mdでプロジェクト設定。エディタ非依存なのでVim/Emacsユーザーにも。</p>
+    </div>
+    <div class="card">
+      <div class="tool-icon" style="background:#10A37F">Codex</div>
+      <div class="card-label">CLI</div>
+      <h4><a href="https://github.com/openai/codex" target="_blank">Codex (OpenAI)</a></h4>
+      <p><a href="https://openai.com/" target="_blank">OpenAI</a>提供のCLI型ツール。オープンソースでカスタマイズ性が高い。GPTベースでプラグインシステムを持つ。コミュニティ主導で拡張が進む。</p>
+    </div>
+    <div class="card">
+      <div class="tool-icon" style="background:#4285F4">Gemini</div>
+      <div class="card-label">CLI</div>
+      <h4><a href="https://cloud.google.com/gemini/docs/codeassist/gemini-cli" target="_blank">Gemini CLI (Google)</a></h4>
+      <p><a href="https://deepmind.google/technologies/gemini/" target="_blank">Gemini</a>モデル使用。GCPとの統合が強み。100万トークンという長大なコンテキストウィンドウが最大の特徴。<a href="https://cloud.google.com/bigquery" target="_blank">BigQuery</a>連携やGCPリソース操作が得意。</p>
+    </div>
+  </div>
+
+  <!-- CLI比較表 -->
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>項目</th><th><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" style="color:var(--white)">Claude Code</a></th><th><a href="https://github.com/openai/codex" target="_blank" style="color:var(--white)">Codex</a></th><th><a href="https://cloud.google.com/gemini/docs/codeassist/gemini-cli" target="_blank" style="color:var(--white)">Gemini CLI</a></th></tr>
+    <tr><td>提供元</td><td>Anthropic</td><td>OpenAI</td><td>Google</td></tr>
+    <tr><td>ベースモデル</td><td>Claude</td><td>GPT</td><td>Gemini</td></tr>
+    <tr><td>OSS</td><td>一部</td><td>あり</td><td>なし</td></tr>
+    <tr><td>エージェント機能</td><td class="highlight">強い</td><td>中程度</td><td>中程度</td></tr>
+    <tr><td>クラウド統合</td><td>なし</td><td>Azure連携可</td><td>GCP強い</td></tr>
+    <tr><td>コンテキスト長</td><td>200K</td><td>128K</td><td class="highlight">1M</td></tr>
+  </table>
+  </div>
+
+  <button class="demo-btn" onclick="openModal('demo-cli')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    デモ : Claude Code でタスク実行
+  </button>
+</div>
+
+<!-- ローカルLLM -->
+<div class="topic">
+  <div class="topic-title"><span>04</span> ローカルLLM &#8212; 手元で動くAI</div>
+  <p style="font-size:.9rem;color:var(--gray-700);margin-bottom:16px">
+    クラウドにデータを送れない環境、あるいはコストを抑えたい場面ではローカルLLMが選択肢に入る。2026年現在、ノートPC上でも実用的なコード生成が可能になった。
+  </p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="tool-icon" style="background:#1A1A1A">Ollama</div>
+      <div class="card-label">LOCAL</div>
+      <h4><a href="https://ollama.com/" target="_blank">Ollama</a></h4>
+      <p>ローカルLLM実行の事実上の標準。1コマンドでモデルのダウンロードと起動が完了する。Llama、Codestral、DeepSeek Coderなど主要モデルに対応。REST APIを提供するためContinueやAvante等のエディタ拡張と連携可能。</p>
+    </div>
+    <div class="card">
+      <div class="tool-icon" style="background:#6366F1">LM St</div>
+      <div class="card-label">LOCAL</div>
+      <h4><a href="https://lmstudio.ai/" target="_blank">LM Studio</a></h4>
+      <p>GUIでモデルを管理・実行できるデスクトップアプリ。HuggingFace上のGGUFモデルをワンクリックでダウンロード。OpenAI互換APIを提供するので、既存のCopilot連携設定をそのまま流用できる。</p>
+    </div>
+    <div class="card">
+      <div class="tool-icon" style="background:#059669">Cont.</div>
+      <div class="card-label">EXTENSION</div>
+      <h4><a href="https://www.continue.dev/" target="_blank">Continue</a></h4>
+      <p>VSCode/JetBrains用の拡張機能。ローカルLLMをコーディングアシスタントとして接続する。Ollamaとの連携が容易で、Copilotと同等のタブ補完・チャット・Agent機能をローカルモデルで実現。</p>
+    </div>
+  </div>
+
+  <button class="reveal-btn" data-label="ローカルLLM詳細" onclick="revealSection(this)">ローカルLLM詳細を表示する</button>
+  <div class="instructor-reveal">
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>項目</th><th>ローカルLLM</th><th>クラウドLLM</th></tr>
+    <tr><td>データ送信</td><td class="highlight">なし(機密対応)</td><td>外部サーバーへ送信</td></tr>
+    <tr><td>ランニングコスト</td><td class="highlight">電気代のみ</td><td>従量課金 or 月額</td></tr>
+    <tr><td>精度</td><td>GPT-3.5相当〜</td><td class="highlight">GPT-4o / Claude Opus</td></tr>
+    <tr><td>セットアップ</td><td>やや手間</td><td class="highlight">即座に利用可能</td></tr>
+    <tr><td>必要スペック</td><td>RAM 16GB以上推奨</td><td>ブラウザのみ</td></tr>
+    <tr><td>向いている用途</td><td>補完・定型コード</td><td>複雑な設計・大規模変更</td></tr>
+  </table>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">現実的な使い分け</div>
+    <p>
+      ローカルLLMは「クラウドの代替」ではなく「棲み分け」で考える。機密性の高い社内コードの補完にはOllama + Continue。大規模な設計やリファクタリングにはClaude CodeやCopilot Agent Mode。この2層構成が2026年時点の最適解だろう。
+    </p>
+  </div>
+  </div>
+</div>
+
+<!-- MCP -->
+<div class="topic">
+  <div class="topic-title"><span>05</span> デモ : 外部コンテキスト引用とMCP</div>
+  <p style="font-size:.9rem;color:var(--gray-700);margin-bottom:16px">
+    <a href="https://modelcontextprotocol.io/" target="_blank">MCP（Model Context Protocol）</a>は<a href="https://www.anthropic.com/" target="_blank">Anthropic</a>が提唱したオープンプロトコル。AIと外部データソースを接続する標準規格で、2026年には事実上の標準として定着した。社内Wiki、DB、API &#8212; AIが「知らない」情報もリアルタイムで参照可能になる。
+  </p>
+
+  <button class="reveal-btn" data-label="MCPの仕組み" onclick="revealSection(this)">MCPの仕組みを表示する</button>
+  <div class="instructor-reveal">
+  <!-- MCPアーキテクチャ -->
+  <div class="diagram">
+┌─────────────┐
+│   AI Model  │
+│ (Claude等)  │
+└──────┬──────┘
+       │  MCP (標準プロトコル)
+┌──────v──────┐
+│ MCP Server  │
+│ (橋渡し役)  │
+└──────┬──────┘
+       │
+  ┌────┴────┐────────┐
+  v         v        v
+┌─────┐  ┌─────┐  ┌───────┐
+│ DB  │  │ API │  │ Drive │
+└─────┘  └─────┘  └───────┘</div>
+
+  <!-- 主要MCPサーバー -->
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>MCPサーバー</th><th>機能</th><th>用途</th></tr>
+    <tr><td><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem" target="_blank">Filesystem</a></td><td>ローカルファイルアクセス</td><td>社内ドキュメント参照</td></tr>
+    <tr><td><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/github" target="_blank">GitHub</a></td><td>リポジトリ、Issue、PR</td><td>コードベースの検索</td></tr>
+    <tr><td><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive" target="_blank">Google Drive</a></td><td>ドキュメント、スプレッドシート</td><td>社内資料の検索</td></tr>
+    <tr><td><a href="https://github.com/modelcontextprotocol/servers" target="_blank">Notion</a></td><td>ノート、データベース</td><td>ナレッジベース連携</td></tr>
+    <tr><td><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/postgres" target="_blank">PostgreSQL</a></td><td>データベースクエリ</td><td>業務データの参照</td></tr>
+    <tr><td><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/slack" target="_blank">Slack</a></td><td>メッセージ、チャンネル</td><td>チーム情報の検索</td></tr>
+  </table>
+  </div>
+
+  <div class="code-block" style="white-space:pre;line-height:1.6"><span class="comment">// MCP設定ファイル例 (~/.claude/mcp.json)</span>
+{
+  <span class="key">"mcpServers"</span>: {
+    <span class="key">"drawio"</span>: {
+      <span class="key">"command"</span>: <span class="str">"npx"</span>,
+      <span class="key">"args"</span>: [<span class="str">"-y"</span>, <span class="str">"@anthropic/mcp-server-drawio"</span>]
+    },
+    <span class="key">"filesystem"</span>: {
+      <span class="key">"command"</span>: <span class="str">"npx"</span>,
+      <span class="key">"args"</span>: [<span class="str">"-y"</span>, <span class="str">"@anthropic/mcp-server-filesystem"</span>, <span class="str">"/docs"</span>]
+    },
+    <span class="key">"gdrive"</span>: {
+      <span class="key">"command"</span>: <span class="str">"npx"</span>,
+      <span class="key">"args"</span>: [<span class="str">"-y"</span>, <span class="str">"@anthropic/mcp-server-gdrive"</span>]
+    }
+  }
+}</div>
+
+  </div><!-- /instructor-reveal (MCPの仕組み) -->
+
+  <div class="callout">
+    <div class="callout-title">デモの流れ</div>
+    <p>
+      draw.io MCPサーバーを使い、Claude Codeに「ECサイトのER図を描いて」と指示する。AIが自然言語からテーブル設計を考え、draw.ioに直接ER図を描画する。コードを書くだけでなく、設計ドキュメントもAIが自動生成できることを示す。
+    </p>
+  </div>
+
+  <button class="demo-btn" onclick="openModal('demo-mcp')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    デモ : draw.io MCP で ER図を自動生成
+  </button>
+
+  <!-- MCP注意点 -->
+  <div style="margin-top:24px">
+    <div style="font-size:.88rem;font-weight:700;margin-bottom:12px">MCPを使う際の注意点</div>
+    <ul class="check-list">
+      <li>機密情報の漏洩リスク &#8212; AIに渡すデータは外部サーバーに送信される可能性がある</li>
+      <li>アクセス制御 &#8212; MCPサーバーには認証機構を設け、最小権限で運用する</li>
+      <li>ログ管理 &#8212; AIがどのデータにアクセスしたか記録し、監査に備える</li>
+      <li>パフォーマンス &#8212; ベクトルDBやキャッシュの導入で応答速度を確保する</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Agent Teams ライブデモ -->
+<div class="topic">
+  <div class="topic-title"><span>06</span> ちょっと先の未来を体験 : Agent Teams</div>
+  <p style="font-size:.9rem;color:var(--gray-700);margin-bottom:16px">
+    Claude CodeのAgent Teams機能はまだベータ版。でも、AIの利用コストは下がり続けており、性能も上がり続けている。1か月後にはこれが当たり前になっている可能性が高い。今日はその「ちょっと先の未来」を一足早く体験してもらいます。
+  </p>
+
+  <div class="callout">
+    <div class="callout-title">会場の皆さんへお願い</div>
+    <p>
+      最後のデモは、皆さんに参加していただきます。2つ決めてください。<br><br>
+      1つ目は「こんなもの作ってみてくれ」という無茶振りテーマ。業務で欲しいツールでも、遊び心あるものでも何でも構いません。<br><br>
+      2つ目は、AIチームの各メンバーが演じるロール &#8212; キャラクター。「ベテラン職人肌のPM」「新卒で張り切りすぎるエンジニア」のような人物像を指定すると、AIがそのキャラで実装を進めます。<br><br>
+      講師がこの後呼びかけますので、ぜひ気軽にアイデアを教えてください。
+    </p>
+  </div>
+
+  <button class="demo-btn" onclick="openModal('demo-teams')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    デモ : Agent Teams ライブ実装
+  </button>
+</div>
+
+<div class="sources">
+  <div class="sources-title">Session 03 参考リンク</div>
+  <ul class="sources-list">
+    <li><a href="https://cursor.sh/" target="_blank">Cursor 公式</a></li>
+    <li><a href="https://docs.cursor.sh/" target="_blank">Cursor ドキュメント</a></li>
+    <li><a href="https://antigravity.dev/" target="_blank">Antigravity 公式</a></li>
+    <li><a href="https://aws.amazon.com/kiro/" target="_blank">Kiro (AWS) 公式</a></li>
+    <li><a href="https://aws.amazon.com/q/developer/" target="_blank">Amazon Q Developer</a></li>
+    <li><a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank">Claude Code ドキュメント</a></li>
+    <li><a href="https://www.anthropic.com/" target="_blank">Anthropic 公式</a></li>
+    <li><a href="https://github.com/openai/codex" target="_blank">Codex (OpenAI) GitHub</a></li>
+    <li><a href="https://cloud.google.com/gemini/docs/codeassist/gemini-cli" target="_blank">Gemini CLI ドキュメント</a></li>
+    <li><a href="https://modelcontextprotocol.io/" target="_blank">MCP 仕様</a></li>
+    <li><a href="https://github.com/modelcontextprotocol/servers" target="_blank">MCP Servers リポジトリ</a></li>
+    <li><a href="https://www.publickey1.jp/blog/25/mcpmodel_context_protocol.html" target="_blank">次期MCP仕様の解説 &#8212; Publickey</a></li>
+    <li><a href="https://atmarkit.itmedia.co.jp/ait/articles/2508/07/news007.html" target="_blank">MCPとは何か &#8212; @IT</a></li>
+    <li><a href="https://gihyo.jp/article/2025/07/kiro" target="_blank">AWS Kiro リリース解説 &#8212; 技術評論社</a></li>
+    <li><a href="https://atmarkit.itmedia.co.jp/ait/articles/2602/13/news057.html" target="_blank">Claude Code VS Code拡張が一般公開 &#8212; @IT</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- ========================================= -->
+<!-- SESSION 04 -->
+<!-- ========================================= -->
+<div class="section" id="session04">
+<div class="section-num">Session 04</div>
+<div class="section-title">質疑応答・ディスカッション</div>
+<p class="section-lead">
+AIの進化は開発の民主化をもたらした。同時に、新たな問いも突きつけている。技術の均一化は何を意味するのか。エンジニアの育成はどう変わるべきか。
+</p>
+
+<!-- Q1 -->
+<div class="disc">
+  <div class="disc-q">Q1 : AIの進化による技術の均一化。「成長機会の損失」をどう考えるか</div>
+  <p style="font-size:.82rem;color:var(--gray-500);margin:8px 0 0">まずは皆さんで考えてみてください。どう思いますか?</p>
+  <button class="disc-toggle" onclick="toggleDisc(this)">回答を表示する</button>
+  <div class="disc-answer">
+    <div class="disc-point" style="margin-top:14px">
+      <h5>差別化要因のシフト</h5>
+      <p>
+        「コードが書ける」はもう差別化にならない。要件定義力、アーキテクチャ設計力、ドメイン知識、ステークホルダーとのコミュニケーション。差別化要因は上流へ移動している。
+      </p>
+    </div>
+
+    <div class="disc-point">
+      <h5>AIに任せられない領域</h5>
+      <p>
+        倫理的判断、顧客との信頼関係構築、組織の意思決定、新規性の高いイノベーション。人間にしかできない仕事は減るどころか、その価値が上がっている。
+      </p>
+    </div>
+
+    <div class="disc-point">
+      <h5>成長機会の再設計</h5>
+      <p>
+        AIの出力を評価・改善する訓練、複雑な問題を分解する練習、AIがない環境での基礎訓練期間の確保、メンタリングによる暗黙知の伝承。従来の「書いて覚える」から「評価して学ぶ」への転換が求められる。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="disc">
+  <div class="disc-q">Q2 : ジュニア/ミドル層エンジニアの育成。シニアが変えるべき行動とは</div>
+  <p style="font-size:.82rem;color:var(--gray-500);margin:8px 0 0">皆さんのチームではどうですか? シニアの方、思い当たることはありませんか?</p>
+  <button class="disc-toggle" onclick="toggleDisc(this)">回答を表示する</button>
+  <div class="disc-answer">
+    <div class="disc-point" style="margin-top:14px">
+      <h5>育成アプローチの変化</h5>
+      <p>
+        従来は「簡単なタスクから徐々に難易度を上げる」だった。今後は「AI活用の型を学ぶ → AIの出力を評価する → AIが苦手な領域を担当 → AIを監督する立場へ」。出発点が変わった。
+      </p>
+    </div>
+
+    <div class="disc-point">
+      <h5>シニアの行動変容</h5>
+      <p>
+        コードレビューの観点をAI生成前提に変更する。「教える」から「導く」へ、答えを与えず考えさせる。AIの限界を示すケーススタディを共有する。設計・判断の「なぜ」を言語化する習慣をつける。
+      </p>
+    </div>
+
+    <div class="disc-point">
+      <h5>評価基準の見直し</h5>
+      <p>
+        生産量ではなく判断の質、コード量ではなく問題解決力、個人成果ではなくチーム貢献。週1回の「AIなし開発タイム」、AIの出力を3回は修正してからマージ、障害対応にジュニアも参加させる。具体的なプラクティスを導入する。
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="sources">
+  <div class="sources-title">Session 04 参考リンク</div>
+  <ul class="sources-list">
+    <li><a href="https://survey.stackoverflow.co/" target="_blank">Stack Overflow Developer Survey</a></li>
+    <li><a href="https://octoverse.github.com/" target="_blank">GitHub Octoverse</a></li>
+    <li><a href="https://www.anthropic.com/research" target="_blank">Anthropic Research</a></li>
+    <li><a href="https://github.blog/" target="_blank">GitHub Blog</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- ========================================= -->
+<!-- まとめ -->
+<!-- ========================================= -->
+<div class="section">
+<div class="section-num">WRAP UP</div>
+<div class="section-title">本日のまとめ</div>
+
+<div class="card-grid">
+  <div class="card">
+    <div class="card-label">SESSION 01</div>
+    <h4>生成AI開発トレンド概観</h4>
+    <p>2021年のCopilot登場から5年で成熟期に到達。エージェント型AIが主流に。リスクとガバナンスの設計が導入の前提条件。</p>
+  </div>
+  <div class="card">
+    <div class="card-label">SESSION 02</div>
+    <h4>VSCode + Copilot実践</h4>
+    <p>バイブコーディングで開発速度が劇的に向上。Agent Modeで自律的開発が可能に。Git Worktreeで並列開発が実現。</p>
+  </div>
+  <div class="card">
+    <div class="card-label">SESSION 03</div>
+    <h4>AI駆動開発の選択肢</h4>
+    <p>Cursor、Kiro、Claude Code、Gemini CLI。どれを選んでもRulesが成果を左右する。MCPで外部コンテキスト統合。</p>
+  </div>
+  <div class="card">
+    <div class="card-label">SESSION 04</div>
+    <h4>エンジニア育成の再設計</h4>
+    <p>差別化要因は上流へ。シニアの役割は「教える」から「導く」へ。評価基準の見直しが急務。</p>
+  </div>
+</div>
+
+<!-- 次のアクション -->
+<div class="callout">
+  <div class="callout-title">明日からの3つのアクション</div>
+  <p>
+    1. 本研修で興味を持ったツールを1つ、今週中に試す。<br>
+    2. チーム内でRules / Instructionsファイルを作成し、リポジトリにコミットする。<br>
+    3. 育成方針についてチームで議論する機会を来月中に設ける。
+  </p>
+</div>
+</div>
+
+<!-- ========================================= -->
+<!-- 付録 -->
+<!-- ========================================= -->
+<div class="section">
+<div class="section-num">APPENDIX</div>
+<div class="section-title">参考リソース</div>
+
+<div class="card-grid">
+  <div class="card">
+    <div class="card-label">TOOL</div>
+    <h4>公式ドキュメント</h4>
+    <p>
+      <a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a><br>
+      <a href="https://cursor.sh/" target="_blank">Cursor</a><br>
+      <a href="https://docs.anthropic.com/claude-code" target="_blank">Claude Code</a><br>
+      <a href="https://aws.amazon.com/kiro/" target="_blank">Kiro (AWS)</a><br>
+      <a href="https://modelcontextprotocol.io/" target="_blank">MCP仕様</a>
+    </p>
+  </div>
+  <div class="card">
+    <div class="card-label">REPORT</div>
+    <h4>レポート・調査</h4>
+    <p>
+      <a href="https://www.stateof.ai/" target="_blank">State of AI Report</a><br>
+      <a href="https://octoverse.github.com/" target="_blank">GitHub Octoverse</a><br>
+      <a href="https://survey.stackoverflow.co/" target="_blank">Stack Overflow Survey</a><br>
+      <a href="https://aiindex.stanford.edu/" target="_blank">Stanford AI Index</a>
+    </p>
+  </div>
+  <div class="card">
+    <div class="card-label">SECURITY</div>
+    <h4>セキュリティ</h4>
+    <p>
+      <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">OWASP LLM Top 10</a><br>
+      <a href="https://resources.github.com/copilot-trust-center/" target="_blank">Copilot Trust Center</a><br>
+      <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank">NIST AI RMF</a>
+    </p>
+  </div>
+</div>
+
+<!-- 用語集 -->
+<div class="topic" style="margin-top:32px">
+  <div class="topic-title"><span>&#9670;</span> 用語集</div>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>用語</th><th>説明</th></tr>
+    <tr><td>AI駆動開発</td><td>AIを中心に据えた開発手法。コード生成からレビュー、デプロイまでAIが関与する</td></tr>
+    <tr><td>バイブコーディング</td><td>自然言語でコードを書く開発スタイル。コードを直接書かない</td></tr>
+    <tr><td>エージェントAI</td><td>自律的にタスクを遂行するAI。人間の指示を理解し、複数ステップを自走する</td></tr>
+    <tr><td><a href="https://modelcontextprotocol.io/" target="_blank">MCP</a></td><td>Model Context Protocol。AIと外部データソース間の通信規格</td></tr>
+    <tr><td>Rules / Instructions</td><td>AIに与えるプロジェクト固有の指示ファイル</td></tr>
+    <tr><td><a href="https://git-scm.com/docs/git-worktree" target="_blank">Git Worktree</a></td><td>1リポジトリから複数の作業ディレクトリを作成するGit機能</td></tr>
+    <tr><td>ハルシネーション</td><td>AIが事実と異なる情報を自信満々に生成すること</td></tr>
+    <tr><td>コンテキスト</td><td>AIに渡す文脈情報。ファイル、会話履歴、外部データなど</td></tr>
+  </table>
+  </div>
+</div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <img class="footer-logo" src="data:image/webp;base64,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" alt="Givery">
+  <p>TK様 静岡会場 生成AI開発トレンド研修 | 2026年2月24日</p>
+  <p style="margin-top:4px">Powered by Givery, Inc.</p>
+</footer>
+
+<!-- ========================================= -->
+<!-- DEMO MODALS -->
+<!-- ========================================= -->
+
+<!-- MODAL 1: バイブコーディング -->
+<div class="modal-overlay" id="demo-vibe">
+<div class="modal">
+  <div class="modal-header">
+    <h3>デモ : バイブコーディング</h3>
+    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-tabs">
+      <button class="modal-tab is-active" onclick="switchTab(this,'vibe')">本筋デモ</button>
+      <button class="modal-tab" onclick="switchTab(this,'vibe')">発展</button>
+    </div>
+    <div class="modal-panel is-active" data-group="vibe">
+      <h4>「コード0行」で業務アプリを作る &#8212; 会場で体感</h4>
+      <p>皆さんが普段やっている「議事録から要件を拾う」作業。これをAIに丸ごと任せます。キーボードに触れるのはプロンプトの入力だけ。</p>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>空のフォルダからスタート</strong>
+          <p>VSCodeで空フォルダを開きます。ファイルはゼロ。Copilot Chatを Cmd+Shift+I で起動し、Agent Modeを選択。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>プロンプト1行で「作って」と依頼</strong>
+          <p>投入するプロンプト例: 「営業の会話メモを貼り付けると、技術要件・予算・スケジュールを自動抽出して表にまとめるWebアプリを作ってください。HTML/CSS/JSのみの1ファイル完結で。」</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>生成結果をブラウザで即確認</strong>
+          <p>Copilotがindex.htmlを1つ生成。ブラウザで開くとテキストエリアとボタンが並ぶアプリが動いている。所要時間は約30秒。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">4</div>
+        <div class="demo-step-body">
+          <strong>実際の議事録メモで動作確認</strong>
+          <p>「A社 田中様との打ち合わせ。基幹システム刷新希望。予算500万、4月稼働希望。現行はAccess、ユーザー50人」と入力。AIが要件・制約・スケジュール・リスクに分解する様子を会場に見せる。</p>
+        </div>
+      </div>
+      <div class="try-section">
+        <div class="try-section-title">自分で試す</div>
+        <div class="try-prompt">
+          <div class="try-prompt-label">プロンプト</div>
+          <div class="try-prompt-code" id="prompt-vibe">営業の会話メモを貼り付けると、技術要件・予算・スケジュール・リスクを自動抽出して表にまとめるWebアプリを作ってください。
+
+要件:
+- HTML/CSS/JSのみの1ファイル完結
+- テキストエリアに会話メモを貼り付けて「分析」ボタンを押す
+- 結果を「技術要件」「予算・コスト」「スケジュール」「リスク・懸念事項」の4カテゴリで表示
+- レスポンシブ対応
+- モダンなUI（白背景ベース）</div>
+          <button class="try-copy-btn" onclick="copyText('prompt-vibe')">コピー</button>
+        </div>
+        <button class="try-download-btn" onclick="downloadFile('打ち合わせメモ_A社_サンプル.txt',DEMO_MEMO)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          ダミー議事録メモをダウンロード
+        </button>
+      </div>
+    </div>
+    <div class="modal-panel" data-group="vibe">
+      <div class="adv-tag">発展コンテンツ</div>
+      <h4>プロンプトの「書き方」で結果がここまで変わる</h4>
+      <p>実際に2パターン試して差を見せます。受講者が自分で試すときの参考になるよう、画面を並べて比較。</p>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>曖昧プロンプト: 「業務アプリ作って」</strong>
+          <p>何が出るか予測できない。ToDoアプリが出たり、カレンダーが出たり。受講者に「こうなりますよね」と笑いを誘う。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>構造化プロンプト: 目的・入出力・技術制約を明記</strong>
+          <p>同じ時間で、狙い通りのアプリが出る。「目的」「入力形式」「出力形式」「技術制約」の4項目を書くだけで精度が跳ね上がる。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>受講者向けポイント</strong>
+          <p>持ち帰れる鉄則: AIに渡すプロンプトは「誰に頼んでも同じものが出る指示書」を目指す。人間への依頼と同じ。曖昧な依頼には曖昧な成果物が返ってくる。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MODAL 2: Agent Mode -->
+<div class="modal-overlay" id="demo-agent">
+<div class="modal">
+  <div class="modal-header">
+    <h3>デモ : Agent Mode で機能追加</h3>
+    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-tabs">
+      <button class="modal-tab is-active" onclick="switchTab(this,'agent')">本筋デモ</button>
+      <button class="modal-tab" onclick="switchTab(this,'agent')">発展</button>
+    </div>
+    <div class="modal-panel is-active" data-group="agent">
+      <h4>「手を離して見ていてください」 &#8212; AIの自律動作を体感</h4>
+      <p>先ほど作ったアプリに機能を追加します。講師はプロンプトを投入した後、一切操作しません。AIがファイルを読み、判断し、書き換える過程を見てください。</p>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>Agent Modeに切り替え</strong>
+          <p>Copilot Chatの入力欄右下でAgent Modeを選択。通常のChatとの違いは「複数ファイルを横断して自律的に動き続ける」点。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>追加指示を1つのプロンプトで依頼</strong>
+          <p>「このアプリに以下を追加: (1) 過去の分析結果をブラウザに保存する履歴機能 (2) ダークモード切替ボタン (3) 結果をMarkdownでコピーするボタン」</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>AIの自律動作を観察する (ここが見どころ)</strong>
+          <p>Agentが既存のHTMLを読み込み、LocalStorage保存のコードを追加し、CSSにダークモード変数を追加し、コピーボタンを実装する。講師は一度もキーボードに触れない。画面に流れるログを会場で一緒に見る。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">4</div>
+        <div class="demo-step-body">
+          <strong>動作確認 &#8212; 3機能すべてが動く</strong>
+          <p>ブラウザをリロード。ダークモード切替、履歴の一覧表示、Markdownコピーを順に実演。先ほど30秒で作ったアプリが、さらに30秒で進化した。</p>
+        </div>
+      </div>
+      <div class="try-section">
+        <div class="try-section-title">自分で試す</div>
+        <div class="try-prompt">
+          <div class="try-prompt-label">プロンプト（デモ1で作ったアプリに対して投入）</div>
+          <div class="try-prompt-code" id="prompt-agent">このアプリに以下の3つの機能を追加してください:
+
+1. 過去の分析結果をブラウザのLocalStorageに保存する履歴機能
+   - 保存時にタイムスタンプと入力テキストの冒頭30文字をキーにする
+   - 履歴一覧を表示し、クリックで過去の結果を再表示
+   - 履歴の個別削除・全削除ボタン
+
+2. ダークモード切替ボタン
+   - ヘッダー右上にトグルボタン配置
+   - 設定はLocalStorageで永続化
+
+3. 結果をMarkdownでコピーするボタン
+   - 分析結果を整形されたMarkdownテーブルとしてクリップボードにコピー
+   - コピー成功時にトースト通知を表示</div>
+          <button class="try-copy-btn" onclick="copyText('prompt-agent')">コピー</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-panel" data-group="agent">
+      <div class="adv-tag">発展コンテンツ</div>
+      <h4>Agent Modeが失敗するケースと対策</h4>
+      <p>万能ではない。受講者が自社で試すとき、つまずきやすいポイントを先に共有します。</p>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>失敗例: コンテキスト不足</strong>
+          <p>「認証機能を追加して」だけだと、JWTなのかSessionなのかOAuthなのか判断できず見当違いの実装をする。技術スタックとライブラリを指定するだけで劇的に改善。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>失敗例: 既存コードの無視</strong>
+          <p>デザインシステムを無視して独自CSSを生成する、テストを書かない、命名規則が崩れる。これがRulesファイルで防げる。Session 03のRulesデモで詳しく解説。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>使い分けの鉄則</strong>
+          <p>局所的な修正 → Edit Mode。質問・相談 → Ask Mode。複数ファイルにまたがる大きなタスク → Agent Mode。粒度が大きいほどAgentが活きる。小さい修正にAgentを使うと過剰な変更をすることがある。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MODAL 3: Git Worktree -->
+<div class="modal-overlay" id="demo-worktree">
+<div class="modal">
+  <div class="modal-header">
+    <h3>デモ : Git Worktree 並列開発</h3>
+    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-tabs">
+      <button class="modal-tab is-active" onclick="switchTab(this,'worktree')">本筋デモ</button>
+      <button class="modal-tab" onclick="switchTab(this,'worktree')">発展</button>
+    </div>
+    <div class="modal-panel is-active" data-group="worktree">
+      <h4>AIを3台並列で走らせる &#8212; 開発速度3倍の仕組み</h4>
+      <p>1人のエンジニアが3つのタスクを「同時に」進める。Git Worktreeで独立した作業場を作り、それぞれのVSCodeウィンドウでCopilotが別々に動く。</p>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>Worktreeでブランチごとの作業場を作成</strong>
+          <p>ターミナルで2コマンド実行。3つの独立したディレクトリが生まれる。ブランチ切り替え不要なので、作業が混ざらない。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>3画面を横に並べてAIに指示</strong>
+          <p>画面A: ログイン画面の実装。画面B: ダッシュボードの作成。画面C: テストコードの生成。3つのCopilotに同時に仕事を振る。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>3つが同時に動いている画面を見せる</strong>
+          <p>「3つのAIが同時にコードを書いています」。受講者にはタイマーを見せ、シーケンシャル(順番)だと10分 x 3 = 30分の作業が10分で終わることを体感してもらう。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">4</div>
+        <div class="demo-step-body">
+          <strong>git merge で統合 &#8212; コンフリクトもAIに任せる</strong>
+          <p>マージ時にコンフリクトが起きたらCopilotに解決させる。「このマージコンフリクトを解消して」の一言で完了。</p>
+        </div>
+      </div>
+      <div class="try-section">
+        <div class="try-section-title">自分で試す</div>
+        <div class="try-prompt">
+          <div class="try-prompt-label">Git Worktree コマンド</div>
+          <div class="try-prompt-code" id="prompt-worktree"># Worktreeの作成（プロジェクトルートで実行）
+git worktree add ../project-login feature/login
+git worktree add ../project-dashboard feature/dashboard
+git worktree add ../project-tests feature/tests
+
+# 各ディレクトリでVSCodeを開く
+code ../project-login
+code ../project-dashboard
+code ../project-tests
+
+# 作業完了後のマージ
+git checkout main
+git merge feature/login
+git merge feature/dashboard
+git merge feature/tests
+
+# Worktreeの削除
+git worktree remove ../project-login
+git worktree remove ../project-dashboard
+git worktree remove ../project-tests</div>
+          <button class="try-copy-btn" onclick="copyText('prompt-worktree')">コピー</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-panel" data-group="worktree">
+      <div class="adv-tag">発展コンテンツ</div>
+      <h4>BOSS-Worker-Reviewer パターン</h4>
+      <p>並列開発を組織的に運用するためのアーキテクチャ。Session 03のClaude Code Agent Teamsデモで実際に動かします。</p>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>BOSSの仕事は「分割」と「統合」</strong>
+          <p>人間(BOSS)がやるのは、タスクを適切な粒度に分割すること、共通インターフェースを先に定義すること。この2つでマージ時のコンフリクトが激減する。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>Worker AI への指示設計がカギ</strong>
+          <p>各Workerに渡す情報: 担当範囲、共通の型定義ファイル、コーディング規約。この3つがあれば、各AIの出力が噛み合う。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>Claude Code のAgent Teams</strong>
+          <p>Claude Codeには複数AIエージェントをチームとして起動する機能がある。Git Worktreeすら不要で、1つのターミナルから並列タスク実行が可能。Session 03後半で実演。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MODAL 4: Rules設定 -->
+<div class="modal-overlay" id="demo-rules">
+<div class="modal">
+  <div class="modal-header">
+    <h3>デモ : Rules 設定と効果の違い</h3>
+    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-tabs">
+      <button class="modal-tab is-active" onclick="switchTab(this,'rules')">本筋デモ</button>
+      <button class="modal-tab" onclick="switchTab(this,'rules')">発展</button>
+    </div>
+    <div class="modal-panel is-active" data-group="rules">
+      <h4>同じプロンプト、違う結果 &#8212; Rulesの有無で比較</h4>
+      <p>画面を2つ並べます。左はルールなし、右はルールあり。同じ「ユーザー検索関数を作って」で何が起こるか見てください。</p>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>ルールなしで生成 (左画面)</strong>
+          <p>変数名が英語だったりローマ字だったり。型がanyだらけ。コメントなし。エラーハンドリングなし。「これ、レビューで差し戻しますよね？」</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>5行のルールファイルを追加</strong>
+          <p>copilot-instructions.mdに書く内容はたった5行: TypeScript使用、関数型パターン、日本語コメント必須、Zodによる入力バリデーション、エラーは明示的にthrow。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>同じプロンプトで再生成 (右画面)</strong>
+          <p>型が付いた。コメントが日本語。Zodバリデーション入り。try-catchも入っている。5行のルールでここまで変わる。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">4</div>
+        <div class="demo-step-body">
+          <strong>受講者への問いかけ</strong>
+          <p>「このルールファイル、皆さんのチームではどんな内容を書きますか？」。自社のコーディング規約を思い浮かべてもらう。それをそのまま書けばいい。</p>
+        </div>
+      </div>
+      <div class="try-section">
+        <div class="try-section-title">自分で試す</div>
+        <div class="try-prompt">
+          <div class="try-prompt-label">プロンプト（ルール有無で比較してみてください）</div>
+          <div class="try-prompt-code" id="prompt-rules">ユーザーIDまたはメールアドレスで社員を検索する関数を作ってください。検索結果は名前、部署、役職、入社日を含むオブジェクトで返してください。見つからない場合の処理も含めてください。</div>
+          <button class="try-copy-btn" onclick="copyText('prompt-rules')">コピー</button>
+        </div>
+        <button class="try-download-btn" onclick="downloadFile('copilot-instructions.md',DEMO_RULES)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          copilot-instructions.md サンプルをダウンロード
+        </button>
+      </div>
+    </div>
+    <div class="modal-panel" data-group="rules">
+      <div class="adv-tag">発展コンテンツ</div>
+      <h4>Rulesファイルの書き方 &#8212; 3つの鉄則</h4>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>鉄則1: 命令形で書く</strong>
+          <p>「〜してください」ではなく「〜すること」。「TypeScriptを使用すること」「変数名はcamelCaseとすること」。断定的な指示のほうがAIは従いやすい。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>鉄則2: 禁止事項は具体例とセット</strong>
+          <p>「anyを使わないこと」だけだと破られることがある。「any禁止。unknown + 型ガードを使うこと」のように代替手段を示す。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>鉄則3: 短く保つ</strong>
+          <p>100行のRulesは読み飛ばされる。AIも人間も同じ。10-20行で核心だけ書く。チーム共有もしやすい。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MODAL 5: Claude Code -->
+<div class="modal-overlay" id="demo-cli">
+<div class="modal">
+  <div class="modal-header">
+    <h3>デモ : Claude Code でタスク実行</h3>
+    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-tabs">
+      <button class="modal-tab is-active" onclick="switchTab(this,'cli')">本筋デモ</button>
+      <button class="modal-tab" onclick="switchTab(this,'cli')">発展</button>
+    </div>
+    <div class="modal-panel is-active" data-group="cli">
+      <h4>エディタなし、ターミナルだけで開発する</h4>
+      <p>Claude Codeはターミナルに住むAI開発者。VSCodeを開かずに、自然言語で指示を出してコードを生成・修正・テストまで完結させます。</p>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>ターミナルで「claude」と打つ</strong>
+          <p>プロジェクトディレクトリでclaude を実行。CLAUDE.mdが存在すれば自動読み込みされ、プロジェクトのルールを理解した状態でスタートする。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>日本語で指示: 「先ほどのアプリにCSVエクスポート機能を追加して」</strong>
+          <p>Claude Codeがプロジェクト構造を読み取り、どのファイルに何を追加すべきか自分で判断して実行。ファイルの読み書きの許可を求めてくるので承認するだけ。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>「この変更をコミットして」</strong>
+          <p>git add + commit を自動実行。コミットメッセージもAIが変更内容を読んで生成する。差分を確認したければ「何を変えたか見せて」で表示。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">4</div>
+        <div class="demo-step-body">
+          <strong>受講者に伝えたいこと</strong>
+          <p>VSCodeが嫌な人にもAI開発の選択肢がある。Vim、Emacs、ターミナル愛好者でもCLIツールなら即座に導入できる。重要なのは「どの道具を使うか」ではなく「AIを使うか使わないか」。</p>
+        </div>
+      </div>
+      <div class="try-section">
+        <div class="try-section-title">自分で試す</div>
+        <div class="try-prompt">
+          <div class="try-prompt-label">プロンプト（Claude Codeで投入）</div>
+          <div class="try-prompt-code" id="prompt-cli">先ほど作成した会議メモ分析アプリにCSVエクスポート機能を追加してください。
+
+追加する機能:
+- 分析結果をCSV形式でダウンロードするボタン
+- CSVのヘッダー行: カテゴリ, 項目, 詳細
+- 文字コードはUTF-8 BOM付き（Excelで文字化けしない）
+- ファイル名は「分析結果_YYYYMMDD_HHMMSS.csv」の形式</div>
+          <button class="try-copy-btn" onclick="copyText('prompt-cli')">コピー</button>
+        </div>
+        <button class="try-download-btn" onclick="downloadFile('CLAUDE.md',DEMO_CLAUDE_MD)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          CLAUDE.md サンプルをダウンロード
+        </button>
+      </div>
+    </div>
+    <div class="modal-panel" data-group="cli">
+      <div class="adv-tag">発展コンテンツ</div>
+      <h4>CLAUDE.md &#8212; AIの「引き継ぎ書」</h4>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>3階層の設定で精度を制御</strong>
+          <p>グローバル設定(~/.claude/CLAUDE.md)、プロジェクト設定(./CLAUDE.md)、プロジェクトローカル設定(.claude/CLAUDE.local.md)。人間の新人に渡す引き継ぎ書と同じ構造。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>Agent Teams &#8212; 複数AIをチームで動かす</strong>
+          <p>Claude CodeのAgent Teams機能で複数エージェントが協調動作。リーダーAIがタスクを分割し、ワーカーAIに振り分け、結果を統合する。この後のデモで実演。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>CLI 3ツール比較</strong>
+          <p>Claude Code = エージェント動作が最強。Codex(OpenAI) = OSS、カスタマイズ派向け。Gemini CLI = 100万トークン、GCPヘビーユーザー向け。自社の技術スタックで選ぶ。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MODAL 6: MCP (draw.io ER図) -->
+<div class="modal-overlay" id="demo-mcp">
+<div class="modal">
+  <div class="modal-header">
+    <h3>デモ : draw.io MCP で ER図を自動生成</h3>
+    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-tabs">
+      <button class="modal-tab is-active" onclick="switchTab(this,'mcp')">本筋デモ</button>
+      <button class="modal-tab" onclick="switchTab(this,'mcp')">発展</button>
+    </div>
+    <div class="modal-panel is-active" data-group="mcp">
+      <h4>自然言語で「ER図を描いて」 &#8212; AIが設計図を自動生成</h4>
+      <p>Claude Codeにdraw.io MCPサーバーを接続し、「ECサイトのER図を描いて」と依頼するだけで設計図が生まれる。コードだけでなく、設計ドキュメントもAIの守備範囲。</p>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>draw.io MCPが接続済みであることを確認</strong>
+          <p>Claude Codeの起動時にMCP接続状況が表示される。draw.ioサーバーが「connected」と表示されていることを会場に見せる。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>「ECサイトのER図を描いて」と依頼</strong>
+          <p>「ユーザー、商品、注文、注文明細、カテゴリの5テーブルからなるECサイトのER図をdraw.ioで作成してください」と指示。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>AIがテーブル設計を考え、draw.ioに描画</strong>
+          <p>Claude Codeが各テーブルのカラム、型、主キー、外部キーを自動設計し、draw.io MCPサーバー経由でER図を描画する。リレーション線も自動で引かれる。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">4</div>
+        <div class="demo-step-body">
+          <strong>draw.ioで結果を確認 &#8212; 即座に編集可能</strong>
+          <p>描画されたER図をdraw.ioで開くと、テーブルの位置調整やカラム追加がGUIで可能。「AIが作った下書きを人間が仕上げる」ワークフロー。</p>
+        </div>
+      </div>
+      <div class="try-section">
+        <div class="try-section-title">自分で試す</div>
+        <div class="try-prompt">
+          <div class="try-prompt-label">プロンプト（Claude Code + draw.io MCPで投入）</div>
+          <div class="try-prompt-code" id="prompt-mcp">ECサイトのER図をdraw.ioで作成してください。
+
+テーブル構成:
+- users: ユーザー情報（ID, 名前, メール, パスワードハッシュ, 住所, 作成日時）
+- categories: 商品カテゴリ（ID, カテゴリ名, 親カテゴリID, 表示順）
+- products: 商品（ID, 商品名, 説明, 価格, 在庫数, カテゴリID, 画像URL, 作成日時）
+- orders: 注文（ID, ユーザーID, 注文日時, 合計金額, ステータス, 配送先住所）
+- order_items: 注文明細（ID, 注文ID, 商品ID, 数量, 単価）
+
+リレーション:
+- categories → categories（自己参照: 親子カテゴリ）
+- products → categories（多対1）
+- orders → users（多対1）
+- order_items → orders（多対1）
+- order_items → products（多対1）
+
+スタイル: テーブルごとに色分け、主キーは太字、外部キーは斜体</div>
+          <button class="try-copy-btn" onclick="copyText('prompt-mcp')">コピー</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-panel" data-group="mcp">
+      <div class="adv-tag">発展コンテンツ</div>
+      <h4>MCPで何が接続できるか</h4>
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>公式MCPサーバー &#8212; 主要データソースをカバー</strong>
+          <p>Filesystem, GitHub, Google Drive, PostgreSQL, Slack, Notion。公式サーバーだけでほとんどの業務データに接続可能。コミュニティ製を含めると数百種。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>自社MCPサーバーも作れる</strong>
+          <p>TypeScriptかPythonで構築。@modelcontextprotocol/sdk を使えば、社内DB・独自API・SaaSとの接続サーバーが数時間で完成する。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>MCPはLinux Foundation傘下の標準規格に</strong>
+          <p>2025年12月、AnthropicがMCPをAgentic AI Foundation(Linux Foundation)に寄贈。OpenAI、Google、Microsoft、AWSも参加し、事実上の業界標準に。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MODAL 7: Agent Teams ライブ実装 -->
+<div class="modal-overlay" id="demo-teams">
+<div class="modal">
+  <div class="modal-header">
+    <h3>ちょっと先の未来を体験 : Agent Teams</h3>
+    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-tabs">
+      <button class="modal-tab is-active" onclick="switchTab(this,'teams')">本筋デモ</button>
+      <button class="modal-tab" onclick="switchTab(this,'teams')">自分で試す</button>
+    </div>
+    <div class="modal-panel is-active" data-group="teams">
+      <h4>1か月後には「当たり前」になる機能を、今日体験する</h4>
+      <p>Agent Teamsは現時点ではベータ版の機能です。ただ、AIの利用コストは毎月下がり、性能は毎月上がっている。1か月後にはこの機能がスタンダードになっていると私は考えています。今日はその未来を先取りしてもらうデモです。</p>
+
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>会場の皆さんに決めてもらうこと &#8212; 2つあります</strong>
+          <p>
+            まず「無茶振りテーマ」。「こんなもの実装してみてくれ」をください。社内で欲しいツールでも、くだらないゲームでも、何でも構いません。AIチームがどこまでやれるか試す場です。<br><br>
+            次に「キャラクター」。AIチームのメンバーに性格を付けます。例えば「ベテラン職人肌のPM」「新卒で張り切りすぎるエンジニア」「石橋を叩きすぎるテスト担当」。キャラクターを指定すると、AIがその人物像でコミュニケーションしながら実装を進めます。
+          </p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>テーマとキャラクターが決まったら &#8212; Agent Teamsを起動</strong>
+          <p>Claude Codeで皆さんが決めたキャラクター構成のチームを作成。各エージェントに名前とロール(人物像)を割り当てて起動する。ターミナルにチームメンバーの一覧が表示される瞬間が見どころ。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>キャラクター付きのAIチームが会話しながら実装</strong>
+          <p>リーダー役が要件を分析し、タスクを分割して各メンバーに配分。メンバー同士がキャラの口調でやりとりしながらコードを書いていく。「いやいや、そこはバリデーション入れとかないとダメでしょ」のようなやりとりが流れる。</p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">4</div>
+        <div class="demo-step-body">
+          <strong>完成したら動作確認 &#8212; 無茶振りにどこまで応えられたか</strong>
+          <p>数分で骨格ができあがる。完璧ではないかもしれない。でもこれが「1か月後に当たり前になる」性能だと想像してみてください。皆さんの開発チームに、24時間文句を言わず動くメンバーが加わる未来です。</p>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;padding:16px 20px;background:var(--gray-100);border-radius:var(--radius);font-size:.85rem;color:var(--gray-700)">
+        <span style="font-weight:700;color:var(--red)">講師より</span><br>
+        この後、会場の皆さんに呼びかけます。テーマもキャラクターも、思いついたものを気軽に声に出してください。正解はありません。むしろ「それは無理だろう」というくらいが楽しいです。
+      </div>
+    </div>
+    <div class="modal-panel" data-group="teams">
+      <div class="adv-tag">自分で試す</div>
+      <h4>Claude Code で Agent Teams を動かす手順</h4>
+      <p>Claude Codeを契約している方は、今日帰ってすぐに試せます。以下の手順で動きます。</p>
+
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <div class="demo-step-body">
+          <strong>前提条件</strong>
+          <p>
+            Claude Code がインストール済みであること(npm install -g @anthropic-ai/claude-code)。Anthropicアカウントに有効な課金設定があること。Agent Teamsはリサーチプレビュー機能のため、最新版のClaude Codeが必要。
+          </p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <div class="demo-step-body">
+          <strong>チームの起動方法</strong>
+          <p>
+            Claude Codeのセッション内で、TeamCreateツールを使ってチームを作成。その後、Taskツールでチームメンバー(サブエージェント)を起動する。各メンバーにはname, subagent_type, team_nameを指定。TaskCreateでタスクリストを作り、TaskUpdateでメンバーにタスクを割り当てる。メンバー間はSendMessageで連携する。
+          </p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <div class="demo-step-body">
+          <strong>キャラクター(ロールプレイ)の指定方法</strong>
+          <p>
+            Taskツールでサブエージェントを起動する際、promptパラメータにキャラクター設定を含める。「あなたは経験20年のベテランPMです。慎重派で、必ずリスクを指摘してからコードを書きます」のように書く。CLAUDE.mdにチーム構成を書いておくと再利用も可能。
+          </p>
+        </div>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">4</div>
+        <div class="demo-step-body">
+          <strong>参考記事・ドキュメント</strong>
+          <p>
+            <a href="https://docs.anthropic.com/ja/docs/claude-code/overview" target="_blank">Claude Code 公式ドキュメント(日本語)</a><br>
+            <a href="https://www.publickey1.jp/blog/25/anthropicclaude_codeclaude_37_sonnet.html" target="_blank">Anthropicがコーディングエージェント「Claude Code」発表 &#8212; Publickey</a><br>
+            <a href="https://atmarkit.itmedia.co.jp/ait/articles/2602/13/news057.html" target="_blank">Claude CodeのVS Code拡張機能が一般公開 &#8212; @IT</a><br>
+            <a href="https://www.watch.impress.co.jp/docs/news/2084006.html" target="_blank">Anthropic、最上位モデル「Claude Opus 4.6」公開 &#8212; Impress Watch</a><br>
+            <a href="https://qiita.com/Takuya__/items/f498c1fb97330cb658ce" target="_blank">Claude Code とは？インストールから使い方まで徹底解説 &#8212; Qiita</a><br>
+            <a href="https://github.com/anthropics/claude-code" target="_blank">Claude Code GitHub リポジトリ</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ========================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================= -->
+<script>
+function openModal(id){
+  var el=document.getElementById(id);
+  if(!el)return;
+  el.classList.add('is-open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  var overlays=document.querySelectorAll('.modal-overlay.is-open');
+  overlays.forEach(function(o){o.classList.remove('is-open')});
+  document.body.style.overflow='';
+}
+function switchTab(btn,group){
+  var tabs=btn.parentElement;
+  var body=tabs.parentElement;
+  var allTabs=tabs.querySelectorAll('.modal-tab');
+  var allPanels=body.querySelectorAll('.modal-panel[data-group="'+group+'"]');
+  var idx=Array.prototype.indexOf.call(allTabs,btn);
+  allTabs.forEach(function(t){t.classList.remove('is-active')});
+  allPanels.forEach(function(p){p.classList.remove('is-active')});
+  btn.classList.add('is-active');
+  if(allPanels[idx])allPanels[idx].classList.add('is-active');
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closeModal();
+});
+document.addEventListener('click',function(e){
+  if(e.target.classList.contains('modal-overlay'))closeModal();
+});
+
+// アイコンSVG定数
+var EYE='<svg class="eye-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+var EYE_OFF='<svg class="eye-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+
+// 初期アイコンセット
+(function(){
+  document.querySelectorAll('.reveal-btn').forEach(function(el){
+    el.innerHTML=(el.getAttribute('data-label')||'詳細')+' '+EYE;
+  });
+  document.querySelectorAll('.disc-toggle').forEach(function(el){
+    el.innerHTML='回答 '+EYE;
+  });
+  var b=document.getElementById('toggleAllBtn');
+  if(b) b.innerHTML='全表示 '+EYE;
+})();
+
+// 全表示トグル
+var allRevealed=false;
+function toggleAll(){
+  allRevealed=!allRevealed;
+  document.querySelectorAll('.reveal-num').forEach(function(el){
+    if(allRevealed) el.classList.add('is-revealed');
+    else el.classList.remove('is-revealed');
+  });
+  document.querySelectorAll('.disc-answer').forEach(function(el){
+    if(allRevealed) el.classList.add('is-open');
+    else el.classList.remove('is-open');
+  });
+  document.querySelectorAll('.disc-toggle').forEach(function(el){
+    if(allRevealed){el.classList.add('is-open');el.innerHTML='回答 '+EYE_OFF;}
+    else{el.classList.remove('is-open');el.innerHTML='回答 '+EYE;}
+  });
+  document.querySelectorAll('.instructor-reveal').forEach(function(el){
+    if(allRevealed) el.classList.add('is-open');
+    else el.classList.remove('is-open');
+  });
+  document.querySelectorAll('.reveal-btn').forEach(function(el){
+    var label=el.getAttribute('data-label')||'詳細';
+    if(allRevealed){el.classList.add('is-open');el.innerHTML=label+' '+EYE_OFF;}
+    else{el.classList.remove('is-open');el.innerHTML=label+' '+EYE;}
+  });
+  var btn=document.getElementById('toggleAllBtn');
+  if(btn){
+    btn.innerHTML=allRevealed?'全非表示 '+EYE_OFF:'全表示 '+EYE;
+    btn.classList.toggle('is-active',allRevealed);
+  }
+}
+
+// ディスカッション回答の個別トグル
+function toggleDisc(btn){
+  var answer=btn.nextElementSibling;
+  if(!answer)return;
+  btn.classList.toggle('is-open');
+  answer.classList.toggle('is-open');
+  btn.innerHTML=answer.classList.contains('is-open')?'回答 '+EYE_OFF:'回答 '+EYE;
+}
+
+// 段階開示の個別トグル
+function revealSection(btn){
+  var target=btn.nextElementSibling;
+  if(!target)return;
+  btn.classList.toggle('is-open');
+  target.classList.toggle('is-open');
+  var label=btn.getAttribute('data-label')||'詳細';
+  btn.innerHTML=target.classList.contains('is-open')?label+' '+EYE_OFF:label+' '+EYE;
+}
+
+// プロンプトコピー
+function copyText(id){
+  var el=document.getElementById(id);
+  if(!el)return;
+  navigator.clipboard.writeText(el.textContent).then(function(){
+    var btn=el.parentElement.querySelector('.try-copy-btn');
+    if(btn){var orig=btn.textContent;btn.textContent='OK';setTimeout(function(){btn.textContent=orig},1200);}
+  });
+}
+
+// ファイルダウンロード
+function downloadFile(name,content){
+  var blob=new Blob([content],{type:'text/plain;charset=utf-8'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');
+  a.href=url;a.download=name;a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ダミーデータ定数
+var DEMO_MEMO='A社 田中様・鈴木様 打ち合わせメモ（2026年2月14日）\n参加者: A社 田中部長、鈴木課長 / 当社 山本、佐藤\n\n【現状の課題】\n- 現行の基幹システムはAccessベース。10年前に社内SEが構築\n- ユーザー数50名だが、同時接続で頻繁にロックがかかる\n- 月末の集計処理に丸1日かかっている\n- テレワーク時にVPN経由で使うと実用に耐えない遅さ\n\n【要望】\n- Web化してブラウザから使えるようにしたい\n- クラウド移行（AWS or Azure、どちらでも可）\n- ダッシュボードで売上・在庫をリアルタイム可視化\n- モバイル対応（iPadで倉庫から在庫確認したい）\n- 既存データ（約20万件）の移行も含めて依頼したい\n\n【予算感】\n- 田中部長「500万〜800万くらいで考えている」\n- 鈴木課長「保守運用費は月額10万以内に抑えたい」\n- 初年度は開発費用を資本的支出で処理したい\n\n【スケジュール】\n- 2026年4月に稼働開始が理想\n- 遅くとも6月の株主総会までには動いていてほしい\n- 3月中旬にデモを見せてほしいとの要望あり\n\n【技術的な制約・懸念】\n- 社内にインフラ担当がいない → フルマネージドが望ましい\n- IE11を使っている部署が2つある（説得は可能とのこと）\n- 会計システム（freee）との連携が必須\n- セキュリティ監査が年1回ある → ログ保持・アクセス制御は必須\n\n【次のアクション】\n- 当社: 概算見積もりを2/21までに提出\n- A社: 現行システムのER図とサンプルデータを提供\n- 3月第1週にプロトタイプレビュー実施';
+
+var DEMO_RULES='# Copilot Instructions\n\n## コーディング規約\n- TypeScriptを使用すること（JavaScriptは不可）\n- 関数型パターンを優先し、クラスは原則使わない\n- 変数・関数名はcamelCase、型名はPascalCase\n- コメントは日本語で記述すること\n\n## 品質基準\n- any型の使用を禁止。unknown + 型ガードを使うこと\n- Zodによる入力バリデーションを必須とする\n- エラーは明示的にthrow。握りつぶさない\n- 関数は単一責任。50行を超えたら分割を検討\n\n## テスト\n- 公開関数には必ずユニットテストを書くこと\n- テストフレームワークはVitest';
+
+var DEMO_CLAUDE_MD='# プロジェクト設定\n\n## 技術スタック\n- フロントエンド: HTML/CSS/JavaScript（フレームワークなし）\n- 単一ファイル構成\n- 外部ライブラリ不使用\n\n## コーディング規約\n- 変数名・関数名は英語、コメントは日本語\n- ES6+構文を使用（const/let, アロー関数, テンプレートリテラル）\n- DOM操作はquerySelectorを使用\n\n## 応答ルール\n- 日本語で応答すること\n- コード変更時は変更理由を簡潔に説明すること\n- ファイル全体を書き直さず、変更箇所のみ編集すること';
+</script>
+
+</body>
+</html>
